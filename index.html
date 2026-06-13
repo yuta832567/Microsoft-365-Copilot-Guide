@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft 365 Copilot 機能詳細レポート ― 7 ツール別機能・制約・操作手順（2026 年 6 月版）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --paper: #fbfaf7;
+    --ink: #0b1220;
+    --ink-1: #1f2937;
+    --ink-2: #475569;
+    --ink-3: #94a3b8;
+    --line: #e5e7eb;
+    --line-2: #d1d5db;
+    --rule: #0b1220;
+    --gold: #8b6914;
+    --gold-soft: #faf6eb;
+    --navy: #1e3a8a;
+    --navy-soft: #eef2ff;
+    --ok: #166534;
+    --ok-soft: #f0fdf4;
+    --warn: #b45309;
+    --warn-soft: #fffbeb;
+    --ng: #991b1b;
+    --ng-soft: #fef2f2;
+    --new: #be185d;
+    --new-soft: #fdf2f8;
+    --word: #185abd;
+    --word-soft: #eff6ff;
+    --excel: #107c41;
+    --excel-soft: #f0fdf4;
+    --ppt: #c43e1c;
+    --ppt-soft: #fef2f2;
+    --outlook: #0078d4;
+    --outlook-soft: #e0f2fe;
+    --teams: #4b53bc;
+    --teams-soft: #eef2ff;
+    --sp: #036c70;
+    --sp-soft: #ecfeff;
+    --forms: #038387;
+    --forms-soft: #ecfeff;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    font-size: 14.5px;
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .sheet {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 80px 72px 120px;
+  }
+
+  /* ═══ COVER ═══ */
+  .cover {
+    border-top: 1px solid var(--rule);
+    padding-top: 32px;
+    margin-bottom: 80px;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+
+  .cover-meta {
+    display: flex;
+    flex-direction: column;
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+
+  .cover-meta .meta-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--line-2);
+    gap: 16px;
+  }
+  .cover-meta .meta-row:last-child { border-bottom: none; }
+  .cover-meta .meta-val {
+    color: var(--ink);
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .cover-kicker {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .cover-title {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.032em;
+    margin: 0 0 32px;
+    color: var(--ink);
+  }
+
+  .cover-title .italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .cover-subtitle {
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: var(--ink-1);
+    max-width: 840px;
+    margin-bottom: 32px;
+  }
+
+  .cover-subtitle strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .cover-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+
+  .browser-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--ok-soft);
+    border: 1px solid #bbf7d0;
+    border-radius: 2px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ok);
+    font-weight: 600;
+  }
+
+  .browser-badge::before {
+    content: "●";
+    font-size: 8px;
+    color: var(--ok);
+  }
+
+  .june-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--new-soft);
+    border: 1px solid #fbcfe8;
+    border-radius: 2px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--new);
+    font-weight: 600;
+  }
+  .june-badge::before {
+    content: "✦";
+    font-size: 10px;
+  }
+
+  /* ═══ TOOL GRID (Cover) ═══ */
+  .tool-grid {
+    border-top: 2px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 32px 0 0;
+  }
+
+  .tool-grid-label {
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .tool-grid-inner {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+
+  .tool-cell {
+    padding: 20px 12px 24px;
+    border-left: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s ease;
+  }
+  .tool-cell:first-child { border-left: none; }
+  .tool-cell:hover { background: var(--paper); }
+
+  .tool-cell::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 2px;
+  }
+  .tool-cell-word::before { background: var(--word); }
+  .tool-cell-excel::before { background: var(--excel); }
+  .tool-cell-ppt::before { background: var(--ppt); }
+  .tool-cell-outlook::before { background: var(--outlook); }
+  .tool-cell-teams::before { background: var(--teams); }
+  .tool-cell-sp::before { background: var(--sp); }
+  .tool-cell-forms::before { background: var(--forms); }
+
+  .tool-cell-num {
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .tool-cell-name {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    margin-bottom: 6px;
+  }
+
+  .tool-cell-role {
+    font-size: 10.5px;
+    color: var(--ink-3);
+    line-height: 1.5;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+  }
+
+  /* ═══ JUNE HIGHLIGHTS BOX ═══ */
+  .june-highlights {
+    margin: 64px 0 32px;
+    padding: 40px 48px;
+    background: var(--new-soft);
+    border: 1px solid #fbcfe8;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .june-highlights-label {
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    background: var(--bg);
+    padding: 0 12px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--new);
+    font-weight: 600;
+  }
+
+  .june-highlights-label::before {
+    content: "✦ ";
+    font-style: italic;
+  }
+
+  .june-highlights-title {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .june-highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+  }
+
+  .june-highlights-list li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-1);
+    border-bottom: 1px dotted #fbcfe8;
+  }
+
+  .june-highlights-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--new);
+    font-weight: 700;
+  }
+
+  .june-highlights-list li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ═══ TABLE OF CONTENTS ═══ */
+  .toc {
+    margin: 48px 0 96px;
+    padding: 40px 48px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+
+  .toc-label {
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    background: var(--bg);
+    padding: 0 12px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    font-weight: 600;
+  }
+
+  .toc-label::before {
+    content: "§ ";
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+  }
+
+  .toc-item a {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--line-2);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .toc-item a:hover {
+    color: var(--gold);
+    padding-left: 4px;
+  }
+
+  .toc-item a:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .toc-num {
+    font-family: "Fraunces", serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .toc-text {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+
+  .toc-sub {
+    display: block;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+
+  /* ═══ SECTION HEAD ═══ */
+  section {
+    margin-bottom: 96px;
+    scroll-margin-top: 32px;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 6px;
+  }
+
+  h2 {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+
+  h2 .tool-tag {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 16px;
+    padding: 4px 12px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: normal;
+    border-radius: 2px;
+    background: var(--paper);
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+
+  .section-lede {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink-1);
+    max-width: 880px;
+  }
+
+  .section-lede strong { font-weight: 600; color: var(--ink); }
+
+  h3 {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 52px 0 20px;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  h3 .h3-en {
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+    font-weight: 400;
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+
+  p { margin: 0 0 16px; color: var(--ink-1); }
+
+  /* ═══ TOOL HEADER STRIP ═══ */
+  .tool-strip {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 20px 28px;
+    margin-bottom: 32px;
+    background: var(--paper);
+    border-left: 3px solid var(--ink-2);
+  }
+
+  .tool-strip-word { border-left-color: var(--word); background: var(--word-soft); }
+  .tool-strip-excel { border-left-color: var(--excel); background: var(--excel-soft); }
+  .tool-strip-ppt { border-left-color: var(--ppt); background: var(--ppt-soft); }
+  .tool-strip-outlook { border-left-color: var(--outlook); background: var(--outlook-soft); }
+  .tool-strip-teams { border-left-color: var(--teams); background: var(--teams-soft); }
+  .tool-strip-sp { border-left-color: var(--sp); background: var(--sp-soft); }
+  .tool-strip-forms { border-left-color: var(--forms); background: var(--forms-soft); }
+
+  .tool-strip-title {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+
+  .tool-strip-desc {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  .tool-strip-url {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-2);
+    margin-top: 6px;
+    word-break: break-all;
+  }
+  .tool-strip-url code {
+    font-family: "Fraunces", serif;
+    background: rgba(255,255,255,0.6);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 11.5px;
+    font-style: normal;
+    color: var(--ink);
+    word-break: break-all;
+  }
+
+  .tool-strip-stat {
+    text-align: right;
+    font-family: "Fraunces", serif;
+    white-space: nowrap;
+  }
+  .tool-strip-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .tool-strip-stat-val {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ═══ TABLES ═══ */
+  .table-wrap { margin: 24px 0 28px; overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    border-top: 1.5px solid var(--rule);
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  thead th {
+    text-align: left;
+    padding: 16px 18px 12px;
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: bottom;
+    line-height: 1.4;
+  }
+
+  tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.75;
+    color: var(--ink-1);
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  tbody .row-label {
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--paper);
+    width: 28%;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .cell-note {
+    display: block;
+    font-size: 11.5px;
+    color: var(--ink-3);
+    margin-top: 6px;
+    line-height: 1.65;
+  }
+  .cell-note::before {
+    content: "▸ ";
+    color: var(--gold);
+  }
+
+  /* ═══ NEW BADGE (inline) ═══ */
+  .new-tag {
+    display: inline-block;
+    padding: 1px 7px;
+    margin-left: 6px;
+    background: var(--new);
+    color: #fff;
+    font-family: "Fraunces", serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  .updated-tag {
+    display: inline-block;
+    padding: 1px 7px;
+    margin-left: 6px;
+    background: #fff;
+    color: var(--new);
+    border: 1px solid var(--new);
+    font-family: "Fraunces", serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  /* ═══ UI STEPS BLOCK ═══ */
+  .ui-steps {
+    margin: 10px 0 0;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-left: 2px solid var(--navy);
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--ink-1);
+  }
+
+  .ui-steps-label {
+    display: block;
+    font-family: "Fraunces", serif;
+    font-size: 10px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .ui-steps ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 12px;
+  }
+
+  .ui-steps ol li {
+    padding: 2px 0;
+  }
+
+  .ui-steps code {
+    font-family: "Fraunces", serif;
+    background: #fff;
+    padding: 1px 5px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-size: 11px;
+    color: var(--ink);
+  }
+
+  .pill {
+    display: inline-block;
+    font-family: "Fraunces", serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .pill-ok { color: var(--ok); background: var(--ok-soft); border: 1px solid #bbf7d0; }
+  .pill-ng { color: var(--ng); background: var(--ng-soft); border: 1px solid #fecaca; }
+  .pill-partial { color: var(--warn); background: var(--warn-soft); border: 1px solid #fde68a; }
+
+  /* ═══ TERM BOX ═══ */
+  .term-box {
+    background: var(--gold-soft);
+    border-left: 2px solid var(--gold);
+    padding: 18px 24px;
+    margin: 20px 0;
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--ink-1);
+  }
+
+  .term-box .term-label {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .term-box .term-word {
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    margin-top: 8px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .term-box .term-word:first-of-type { margin-top: 0; }
+
+  .term-box .term-def {
+    display: block;
+    margin: 2px 0 4px;
+  }
+
+  .term-inline {
+    border-bottom: 1px dotted var(--gold);
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ═══ CALLOUTS ═══ */
+  .callout {
+    padding: 20px 26px;
+    margin: 24px 0;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink-1);
+  }
+
+  .callout-warn {
+    background: var(--warn-soft);
+    border-left-color: var(--warn);
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: block;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+  }
+
+  .callout-title::before {
+    content: "◆ ";
+    color: var(--navy);
+  }
+  .callout-warn .callout-title::before { color: var(--warn); }
+
+  .callout strong { color: var(--ink); font-weight: 600; }
+  .callout p { margin: 0 0 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ═══ DUAL PANELS ═══ */
+  .dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .dual-panel {
+    padding: 24px 26px;
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+
+  .dual-panel-ok { border-top: 2px solid var(--ok); }
+  .dual-panel-ng { border-top: 2px solid var(--ng); }
+
+  .dual-head {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .dual-panel-ok .dual-head { color: var(--ok); }
+  .dual-panel-ng .dual-head { color: var(--ng); }
+
+  .dual-head small {
+    display: block;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .dual-list { list-style: none; padding: 0; margin: 0; }
+
+  .dual-list li {
+    padding: 10px 0 10px 22px;
+    position: relative;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--ink-1);
+    border-bottom: 1px dotted var(--line);
+  }
+  .dual-list li:last-child { border-bottom: none; }
+  .dual-list li strong { color: var(--ink); font-weight: 600; }
+
+  .dual-panel-ok .dual-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--ok);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .dual-panel-ng .dual-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--ng);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  /* ═══ FOUNDATION ═══ */
+  .foundation {
+    padding: 40px 48px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin: 32px 0;
+  }
+
+  .foundation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .foundation-item {
+    position: relative;
+  }
+
+  .foundation-num {
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .foundation-head {
+    font-family: "Fraunces", "Noto Serif JP", serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .foundation-text {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--ink-2);
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    margin-top: 96px;
+    padding-top: 40px;
+    border-top: 2px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.75;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 48px;
+    margin-bottom: 32px;
+  }
+
+  .footer-label {
+    font-family: "Fraunces", serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .footer-value {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .sources-list {
+    columns: 2;
+    column-gap: 32px;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--ink-2);
+  }
+
+  .sources-list > div {
+    break-inside: avoid;
+  }
+
+  .disclaimer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px dotted var(--line-2);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    line-height: 1.85;
+  }
+
+  /* ═══ BACK TO TOP ═══ */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Fraunces", serif;
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .back-to-top:hover {
+    background: var(--gold);
+  }
+
+  .back-to-top:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 980px) {
+    .sheet { padding: 48px 24px 80px; }
+    .cover-title { font-size: 40px; }
+    h2 { font-size: 26px; }
+    .cover-grid { grid-template-columns: 1fr; gap: 24px; }
+    .tool-grid-inner { grid-template-columns: repeat(2, 1fr); }
+    .tool-cell { border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .tool-cell:nth-child(odd) { border-left: none; }
+    .dual, .foundation-grid, .june-highlights-list { grid-template-columns: 1fr; gap: 24px; }
+    .section-head { grid-template-columns: 48px 1fr; gap: 16px; }
+    .section-num { font-size: 22px; }
+    .toc, .june-highlights { padding: 32px 24px; }
+    .toc-list { grid-template-columns: 1fr; gap: 0; }
+    .sources-list { columns: 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .foundation { padding: 28px 24px; }
+    .tool-strip { grid-template-columns: 1fr; }
+    .tool-strip-stat { text-align: left; }
+    h2 .tool-tag { display: block; margin: 8px 0 0; width: fit-content; }
+    .cover-meta .meta-row { font-size: 10px; }
+    table { font-size: 12.5px; }
+    tbody td, tbody .row-label { padding: 12px 12px; }
+    tbody .row-label { width: 35%; }
+    .june-highlights-list li { font-size: 12.5px; }
+    .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+  }
+
+  @media (max-width: 600px) {
+    .sheet { padding: 32px 16px 60px; }
+    .cover-title { font-size: 32px; }
+    .cover-subtitle { font-size: 14px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+    .tool-strip { padding: 16px 18px; }
+    .toc, .june-highlights, .foundation { padding: 24px 18px; }
+    .dual-panel { padding: 20px; }
+    .callout { padding: 16px 18px; font-size: 12px; }
+    .ui-steps { padding: 10px 12px; font-size: 11.5px; }
+    .ui-steps ol { padding-left: 18px; }
+    .term-box { padding: 14px 18px; }
+    tbody td, tbody .row-label { padding: 10px 10px; font-size: 12px; }
+    .tool-grid-inner { grid-template-columns: 1fr; }
+    .tool-cell:nth-child(odd) { border-left: 1px solid var(--line); }
+    .tool-cell:first-child { border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+    .tool-cell { border-right: 1px solid var(--line); }
+  }
+
+  @media print {
+    .sheet { padding: 24px; max-width: 100%; }
+    body { font-size: 10.5px; line-height: 1.65; }
+    section, .cover { page-break-inside: avoid; }
+    .cover-title { font-size: 34px; }
+    h2 { font-size: 22px; }
+    .toc { page-break-after: always; }
+    .back-to-top { display: none; }
+  }
+
+  /* Focus states for accessibility */
+  a:focus, button:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- ═════════════════════════ COVER ═════════════════════════ -->
+  <header class="cover">
+    <div class="cover-grid">
+      <div>
+        <div class="cover-kicker">Microsoft 365 Business Standard + Copilot ライセンス</div>
+        <h1 class="cover-title">7 つのツールで使う<br>Copilot<br><span class="italic">機能詳細</span></h1>
+        <div class="cover-badges">
+          <span class="browser-badge">ブラウザ版限定</span>
+          <span class="june-badge">2026 年 6 月 13 日版</span>
+        </div>
+      </div>
+      <div class="cover-meta">
+        <div class="meta-row"><span>Document</span><span class="meta-val">Feature & UI Guide</span></div>
+        <div class="meta-row"><span>Scope</span><span class="meta-val">Word / Excel / PPT / Outlook<br>Teams / SharePoint / Forms</span></div>
+        <div class="meta-row"><span>Platform</span><span class="meta-val">Web Browser Only</span></div>
+        <div class="meta-row"><span>Issued</span><span class="meta-val">2026 · 06 · 13</span></div>
+        <div class="meta-row"><span>Revision</span><span class="meta-val">3.0 / June 2026 Update</span></div>
+      </div>
+    </div>
+
+    <p class="cover-subtitle">
+      <strong>Microsoft 365 Business Standard ＋ Microsoft 365 Copilot（アドオン）</strong>ライセンスが付与されていることを前提に、7 つの Microsoft 365 ツールの<strong>ブラウザ版</strong>で Copilot が提供する全機能・できないこと・制約条件・UI 操作手順を整理した実務ガイドです。本版（v3.0）では <strong>2026 年 4 月以降〜6 月 13 日時点</strong>の最新アップデート（Claude Opus 4.8、Microsoft 365 Copilot アプリ刷新、Excel Plan モード ＋ Python、PowerPoint 画像モデル選択、SharePoint Copilot 既定オン化、Teams Consecutive Interpretation など）をすべて反映しています。
+    </p>
+
+    <div class="tool-grid">
+      <div class="tool-grid-label">対象ツール ― At a Glance（クリックで該当章へ）</div>
+      <div class="tool-grid-inner">
+        <a class="tool-cell tool-cell-word" href="#sec-01">
+          <div class="tool-cell-num">01</div>
+          <div class="tool-cell-name">Word</div>
+          <div class="tool-cell-role">ドキュメント作成</div>
+        </a>
+        <a class="tool-cell tool-cell-excel" href="#sec-02">
+          <div class="tool-cell-num">02</div>
+          <div class="tool-cell-name">Excel</div>
+          <div class="tool-cell-role">データ分析</div>
+        </a>
+        <a class="tool-cell tool-cell-ppt" href="#sec-03">
+          <div class="tool-cell-num">03</div>
+          <div class="tool-cell-name">PowerPoint</div>
+          <div class="tool-cell-role">スライド作成</div>
+        </a>
+        <a class="tool-cell tool-cell-outlook" href="#sec-04">
+          <div class="tool-cell-num">04</div>
+          <div class="tool-cell-name">Outlook</div>
+          <div class="tool-cell-role">メール / 予定</div>
+        </a>
+        <a class="tool-cell tool-cell-teams" href="#sec-05">
+          <div class="tool-cell-num">05</div>
+          <div class="tool-cell-name">Teams</div>
+          <div class="tool-cell-role">会議 / チャット</div>
+        </a>
+        <a class="tool-cell tool-cell-sp" href="#sec-06">
+          <div class="tool-cell-num">06</div>
+          <div class="tool-cell-name">SharePoint</div>
+          <div class="tool-cell-role">サイト / 知識共有</div>
+        </a>
+        <a class="tool-cell tool-cell-forms" href="#sec-07">
+          <div class="tool-cell-num">07</div>
+          <div class="tool-cell-name">Forms</div>
+          <div class="tool-cell-role">アンケート</div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═════════════════════════ JUNE 2026 HIGHLIGHTS ═════════════════════════ -->
+  <section class="june-highlights" aria-label="6 月の主要アップデート">
+    <div class="june-highlights-label">June 2026 Major Updates</div>
+    <h2 class="june-highlights-title">6 月 13 日時点で押さえるべき主要アップデート</h2>
+    <ul class="june-highlights-list">
+      <li><strong>Claude Opus 4.8</strong> が 5 月 28 日から Excel・PowerPoint・Copilot Chat に展開（Microsoft 365 Copilot ライセンス保有者向け）</li>
+      <li><strong>Microsoft 365 Copilot アプリ UI 刷新</strong> ― チャット中心レイアウトに（6 月展開中）</li>
+      <li><strong>Excel：Plan モード ＋ Python 統合</strong> ― 編集前にステップ計画を確認、Python で高度分析（5 月展開）</li>
+      <li><strong>PowerPoint：ビルトインスキル 3 種</strong> ― Review / Visualize / Prepare for Questions（5 月展開）</li>
+      <li><strong>PowerPoint：画像モデル選択</strong> ― GPT-Image-2 / 1.5、MAI Image 2 Efficient、Flux.2 Flex から選択可（5 月展開）</li>
+      <li><strong>PowerPoint Live で Copilot Explain</strong> ― 聴講者がスライド文字を選択して説明取得（6 月中下旬）</li>
+      <li><strong>Outlook：Calendar エージェント（Frontier）</strong> ― 受信トレイ整理・予定調整を継続実行（6 月一般展開中）</li>
+      <li><strong>Teams：Consecutive Interpretation</strong> ― ターン制翻訳が GA、10 言語対応、月 20 時間／人</li>
+      <li><strong>Teams：Call Delegation</strong> ― Copilot が電話応対と予約セット（5 月展開）</li>
+      <li><strong>SharePoint Copilot：既定オン化</strong> ― 6 月中旬から opt-out 方式（KnowledgeAgentScope = AllSites）</li>
+      <li><strong>SharePoint List Agent</strong> ― エージェントの知識源にリストを指定可（最大 20,000 アイテム、6 月展開）</li>
+      <li><strong>SharePoint File Actions</strong> ― 自然言語でファイルの検索・リネーム・移動を承認制で一括実行（6 月展開）</li>
+      <li><strong>Copilot Notebooks：Word/PPT/Excel 生成</strong> ― ノートからドキュメント・デック・シート出力（Frontier、6 月世界展開）</li>
+      <li><strong>Copilot Notebooks UI 刷新</strong> ― プロジェクト別にチャット・出力・参照を一元化、OneNote アプリと双方向同期（6 月展開）</li>
+    </ul>
+  </section>
+
+  <!-- ═════════════════════════ TABLE OF CONTENTS ═════════════════════════ -->
+  <nav class="toc" aria-label="目次">
+    <div class="toc-label">Table of Contents</div>
+    <ol class="toc-list">
+      <li class="toc-item">
+        <a href="#sec-00">
+          <span class="toc-num">00</span>
+          <span class="toc-text">共通基盤と横断的な制約<span class="toc-sub">全ツールに共通する前提条件・モデル選択</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-01">
+          <span class="toc-num">01</span>
+          <span class="toc-text">Word の Copilot<span class="toc-sub">Edit with Copilot / Word Agent</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-02">
+          <span class="toc-num">02</span>
+          <span class="toc-text">Excel の Copilot<span class="toc-sub">Plan モード / Python / Claude Opus 4.8</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-03">
+          <span class="toc-num">03</span>
+          <span class="toc-text">PowerPoint の Copilot<span class="toc-sub">ビルトインスキル / 画像モデル選択</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-04">
+          <span class="toc-num">04</span>
+          <span class="toc-text">Outlook の Copilot<span class="toc-sub">Calendar エージェント / メール下書き</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-05">
+          <span class="toc-num">05</span>
+          <span class="toc-text">Teams の Copilot<span class="toc-sub">Consecutive Interpretation / Call Delegation</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-06">
+          <span class="toc-num">06</span>
+          <span class="toc-text">SharePoint の Copilot<span class="toc-sub">既定オン化 / List Agent / Skills</span></span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="#sec-07">
+          <span class="toc-num">07</span>
+          <span class="toc-text">Forms の Copilot<span class="toc-sub">Draft with Copilot / Surveys Agent</span></span>
+        </a>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- ═════════════════════════ SECTION 00: COMMON FOUNDATION ═════════════════════════ -->
+  <section id="sec-00">
+    <div class="section-head">
+      <div class="section-num">00</div>
+      <div>
+        <h2>共通基盤と横断的な制約</h2>
+        <p class="section-lede">
+          7 ツールのブラウザ版で共通する前提条件・モデル選択・横断アップデートを整理します。各ツール固有の機能に入る前に、この章で基盤情報を把握してください。
+        </p>
+      </div>
+    </div>
+
+    <div class="foundation">
+      <div class="foundation-grid">
+        <div class="foundation-item">
+          <div class="foundation-num">01</div>
+          <div class="foundation-head">Work IQ で組織データを横断参照</div>
+          <div class="foundation-text">
+            Microsoft 365 Copilot は <span class="term-inline">Work IQ</span>（ワーク・アイキュー）というインテリジェンス層を介して、メール・会議・ファイル・Teams メッセージをまたいだコンテキストを理解します。アクセス権限を尊重し、参照できるのは本人が権限を持つ情報のみです。
+          </div>
+        </div>
+        <div class="foundation-item">
+          <div class="foundation-num">02</div>
+          <div class="foundation-head">EDP でプロンプトは学習に使われない</div>
+          <div class="foundation-text">
+            <span class="term-inline">エンタープライズデータ保護（EDP）</span>が全ツールに適用されます。送信したプロンプトや応答は AI モデルの学習には使われず、Microsoft Product Terms のもとで保護されます。機密度ラベルも尊重されます。
+          </div>
+        </div>
+        <div class="foundation-item">
+          <div class="foundation-num">03</div>
+          <div class="foundation-head">Microsoft 365 Copilot アプリ刷新<span class="updated-tag">June</span></div>
+          <div class="foundation-text">
+            6 月から Microsoft 365 Copilot アプリの UI がチャット中心デザインに刷新中。チャットとレスポンスのレイアウトが整理され、ナビゲーション改善・作業整理用の新機能が追加されました。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>ブラウザ版利用のための前提条件 <span class="h3-en">Prerequisites for Web Use</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28%">項目</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">ライセンス</td>
+            <td>Microsoft 365 Business Standard（最大 300 ユーザー）＋ Microsoft 365 Copilot アドオンの両方が割り当てられていること。
+              <span class="cell-note">確認方法：任意のアプリでアカウントアイコン（画面右上）をクリック →「アカウントを表示」→「サブスクリプション」で Copilot ライセンスが付与されているか確認</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">サードパーティ Cookie</td>
+            <td>ブラウザ側でサードパーティ Cookie が<strong>有効</strong>になっていること（無効だと Copilot のライセンス検証に失敗する）。</td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot ボタンの位置<br>（Web 共通）</td>
+            <td>Word・Excel の Web 版では、リボンの <strong>「ホーム」タブの右端</strong>に Copilot アイコンが常設される。<strong>PowerPoint の Web 版は画面右下に Copilot アイコンを配置</strong>（2026 年 3 月末から）。Outlook・Teams・SharePoint ではそれぞれの位置が異なる（各章で解説）。</td>
+          </tr>
+          <tr>
+            <td class="row-label">共通アクセス URL</td>
+            <td>各アプリはブラウザから直接アクセス可能：
+              <span class="cell-note">Word：<code>https://word.cloud.microsoft</code></span>
+              <span class="cell-note">Excel：<code>https://excel.cloud.microsoft</code></span>
+              <span class="cell-note">PowerPoint：<code>https://powerpoint.cloud.microsoft</code></span>
+              <span class="cell-note">Outlook：<code>https://outlook.office.com</code></span>
+              <span class="cell-note">Teams：<code>https://teams.microsoft.com</code></span>
+              <span class="cell-note">SharePoint：<code>https://[テナント名].sharepoint.com</code></span>
+              <span class="cell-note">Forms：<code>https://forms.office.com</code></span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Microsoft 365 Copilot アプリ<br>（統合ハブ）</td>
+            <td>全 Copilot 機能の統合ハブ。<code>https://m365.cloud.microsoft</code> または <code>https://m365.cloud.microsoft/chat</code> からアクセス可能。<strong>6 月から UI を刷新</strong>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>利用可能な AI モデル一覧 <span class="h3-en">Available AI Models</span><span class="updated-tag">June</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:24%">モデル</th>
+            <th style="width:38%">主な用途</th>
+            <th>利用可能な体験</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">GPT-5.5 Instant<br>（GPT-5.5 Quick response）</td>
+            <td>高速応答型。短いプロンプトや簡単な要約・下書きに最適。</td>
+            <td>Copilot Chat、Word、Excel、PowerPoint、Outlook、Teams の基盤モデル（既定）</td>
+          </tr>
+          <tr>
+            <td class="row-label">GPT-5.5 Thinking<br>（Thinking モード）</td>
+            <td>複雑な推論を必要とするタスク向け。応答に時間がかかるが精度が高い。</td>
+            <td>Copilot Chat、Researcher エージェント</td>
+          </tr>
+          <tr>
+            <td class="row-label">Claude Opus 4.8<span class="new-tag">June</span></td>
+            <td>多段階の複雑タスク、長時間ワークフロー、文書作成・データ分析・プレゼン生成に強み。Anthropic の最新モデル。</td>
+            <td>5 月 28 日から Copilot Cowork（Frontier）、Copilot Chat、Excel、PowerPoint、Copilot Studio に段階展開</td>
+          </tr>
+          <tr>
+            <td class="row-label">Claude Opus 4.7<br>Claude Sonnet 4</td>
+            <td>Researcher、Copilot Studio で従来から利用可能な Anthropic モデル。</td>
+            <td>Researcher エージェント、Copilot Studio</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-title">モデル選択の有効化に必要な管理者設定</span>
+      <p>Microsoft 365 管理センターで Anthropic を Microsoft の副処理者として有効化する必要があります。具体的には「AI providers for other large language models（他の大規模言語モデルの AI プロバイダー）」設定で Anthropic を許可します。<strong>2026 年 5 月 1 日に Anthropic Independent Processor（IP）設定は廃止</strong>されたため、副処理者としての設定に統一されました。</p>
+      <p>また、<strong>2026 年 5 月 4 日（MC1269241）から</strong>、商用クラウドでは Excel・PowerPoint の Copilot 既定モデルが Anthropic Claude に変更されました（EU/EFTA/UK は除外、管理者の有効化が前提）。Word も 2026 年夏に追従予定（Roadmap ID 558440）。</p>
+    </div>
+
+    <h3>用語補足 <span class="h3-en">Key Terms</span></h3>
+    <div class="term-box">
+      <span class="term-label">Core Concepts</span>
+      <span class="term-word">Edit with Copilot（旧称 Agent Mode）</span>
+      <span class="term-def">Word・Excel・PowerPoint のアプリ内部で Copilot が対話しながら直接編集する機能。2026 年 3 月の一般提供化時に「Agent Mode」から「Edit with Copilot」へ改称された。両方の名称が混在する。</span>
+      <span class="term-word">Work IQ</span>
+      <span class="term-def">Copilot の背後にあるインテリジェンス層。ファイル・メール・会議の関係性を理解し、応答精度を高める。Microsoft 365 Copilot ライセンス保有者のみ利用可能。</span>
+      <span class="term-word">Copilot Chat（グラウンディング）</span>
+      <span class="term-def">Copilot Chat 内部から各アプリの「Agent」（Word Agent / Excel Agent / PowerPoint Agent など）を呼び出せる機能。チャットから直接ドキュメントを生成し、OneDrive に保存される。</span>
+      <span class="term-word">Frontier プログラム</span>
+      <span class="term-def">一般提供（GA）前の機能を先行利用できる早期アクセスプログラム。管理者が Microsoft 365 管理センターで有効化する。</span>
+      <span class="term-word">Copilot Notebooks</span>
+      <span class="term-def">ファイル・メール・会議・Web リンクなど複数のソースを集約して 1 つのワークスペースとして扱う機能。6 月から Word / PowerPoint / Excel への一括生成も可能に。</span>
+    </div>
+
+    <h3>横断的な制約 <span class="h3-en">Cross-tool Constraints</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">制約カテゴリ</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">機密度ラベル</td>
+            <td>機密度ラベルにより「抽出不可」と設定されたコンテンツは、Copilot による処理・要約・参照の対象外となる。</td>
+          </tr>
+          <tr>
+            <td class="row-label">アクセス権限</td>
+            <td>Copilot はユーザーが Microsoft 365 上で本来権限を持つコンテンツにのみアクセスする。権限のないファイル・メール・会議は応答に利用されない。</td>
+          </tr>
+          <tr>
+            <td class="row-label">ファイル保存先</td>
+            <td>Copilot を Word・Excel・PowerPoint でフル活用するには、ファイルが<strong>OneDrive または SharePoint</strong> に保存されている必要がある。</td>
+          </tr>
+          <tr>
+            <td class="row-label">EU Data Boundary</td>
+            <td>Anthropic Claude は<strong>EU Data Boundary からは除外</strong>。EU/EFTA/UK テナントでは管理者が明示的に有効化する必要がある。</td>
+          </tr>
+          <tr>
+            <td class="row-label">対応言語</td>
+            <td>日本語を含む多言語に対応。ただし一部の Frontier 機能（PowerPoint Brand Kit 準拠チェック、Teams Video Recap、Teams Audio Recap 等）は<strong>英語（en-us）のみ</strong>。</td>
+          </tr>
+          <tr>
+            <td class="row-label">コンテンツの正確性</td>
+            <td>Copilot は「もっともらしいが不正確な」応答を返す可能性があるため、重要な判断や外部共有前にはユーザーによるレビューが必須。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 01: WORD ═════════════════════════ -->
+  <section id="sec-01">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <div>
+        <h2>Word の Copilot <span class="tool-tag">Word for the web</span></h2>
+        <p class="section-lede">
+          Word ブラウザ版における Copilot は、<strong>ドキュメントを共同制作する AI パートナー</strong>として機能します。2026 年 3 月に一般提供された <strong>Edit with Copilot</strong>（旧 Agent Mode）により、プロンプトから文書を生成し、段階的に改稿できます。3 月以降は引用元の標準表示、Lock-free coauthoring の検証なども追加されています。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-word">
+      <div>
+        <div class="tool-strip-title">Word for the web ― ブラウザ版の Copilot</div>
+        <div class="tool-strip-desc">リボンの「ホーム」タブ右端に常設される Copilot アイコンから起動。3 月以降、Web 検索・Work IQ 由来の内容は引用が標準で表示されるようになった。Word での Anthropic Claude 既定化は 2026 年夏予定。</div>
+        <div class="tool-strip-url">URL <code>https://word.cloud.microsoft</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">Generally Available</div>
+      </div>
+    </div>
+
+    <h3>Word アプリ内でできること <span class="h3-en">In-App Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Edit with Copilot<br>（旧 Agent Mode）</td>
+            <td>プロンプトから文書を生成し、対話形式で改稿できる。AI が目的・対象読者・トーンを確認しながら完成度を高めていく。<strong>3 月以降、Web 検索・Work IQ ソース由来の内容には引用が標準で表示される</strong>。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Word for the web で対象ドキュメントを開く（OneDrive/SharePoint 保存が必要）</li>
+                  <li>リボンの <code>ホーム</code> タブ右端の <code>Copilot</code> アイコンをクリック</li>
+                  <li>右側に開く Copilot ペインのプロンプトボックス下の <code>Tools</code>（ツール）アイコンをクリック</li>
+                  <li>メニューから <code>Edit with Copilot</code> を選択</li>
+                  <li>プロンプトボックスに指示を入力して送信</li>
+                  <li>応答内に表示される引用番号をクリックすると参照元を確認可能</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Draft with Copilot</td>
+            <td>空の行から新規に文章を下書き生成する。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>新しい段落の先頭にカーソルを置く</li>
+                  <li>左余白に表示される <code>Draft with Copilot</code> アイコン（Copilot ロゴ）をクリック</li>
+                  <li>プロンプトを入力 → <code>Generate</code> をクリック</li>
+                  <li>生成結果に対して <code>Keep it</code> / <code>Regenerate</code> / <code>Discard</code> を選択</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Rewrite（書き直し）</td>
+            <td>選択箇所の書き直し、短縮、トーン変更が可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>書き直したい文章を選択する</li>
+                  <li>選択範囲の左余白に表示される <code>Copilot</code> アイコンをクリック</li>
+                  <li>メニューから <code>Rewrite</code> を選択（または「トーン変更」「短縮」を選択）</li>
+                  <li>提案内容を <code>Replace</code> で反映、または <code>Try again</code> で再生成</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Summarize（要約）</td>
+            <td>ドキュメント全体の要約を生成し、主要ポイントと次アクションに整理。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>リボンの <code>ホーム</code> タブ右端の <code>Copilot</code> アイコンをクリック</li>
+                  <li>Copilot ペインのプロンプト候補から <code>Summarize this doc</code> を選択、または直接入力</li>
+                  <li>生成された要約で「Brief / Standard / Detailed」（簡潔 / 標準 / 詳細）を切り替え可能</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">ファイル・メール・会議の参照</td>
+            <td>Work IQ を通じて他の Word ファイル・メール・会議の文字起こしを参照しながら反映。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot ペインのプロンプトボックスで <code>/</code>（スラッシュ）を入力</li>
+                  <li>表示されるメニューでファイル名・メール件名・会議名を入力して検索</li>
+                  <li>候補から対象を選択して参照として添付</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Lock-free coauthoring<span class="new-tag">May–June</span></td>
+            <td>複数人が同じ段落を同時編集できるよう拡張された共同編集。競合や中断を減らす。
+              <span class="cell-note">5 月中旬〜6 月初旬展開（MC1304289）。サポート外シナリオでは既存の共同編集体験に戻る</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">Word Agent in Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Word Agent</td>
+            <td>Copilot Chat から自然言語で指示し、OneDrive 上に Word ドキュメントを生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>ブラウザで <code>https://m365.cloud.microsoft/chat</code> にアクセス</li>
+                  <li>左側メニューの <code>Agents</code>（エージェント）から <code>Word Agent</code> を選択</li>
+                  <li>プロンプトボックスに作成したいドキュメントを指示（例：「オンボーディングガイドを 5 ページで作成」）</li>
+                  <li>必要に応じて <code>+</code> アイコンから参照ファイルを追加</li>
+                  <li>生成完了後、OneDrive 上のリンクから Word で開いて編集</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot Notebooks から Word 生成<span class="new-tag">May–June</span></td>
+            <td>Copilot Notebooks に集約したコンテンツ・参照から Word ドキュメントを一括生成（Frontier から 5 月展開、6 月に世界展開）。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li><code>https://m365.cloud.microsoft</code> の左メニューから <code>Notebooks</code> を開く</li>
+                  <li>対象 Notebook を選択 → 参照ファイルを追加</li>
+                  <li>Notebook 上部から「Create」→ <code>Word document</code> を選択</li>
+                  <li>生成された Word ファイルは OneDrive に保存される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li><strong>プロンプトから本格的な長文ドキュメント</strong>を生成</li>
+          <li><strong>対話形式で段階的に改稿</strong>、変更プレビューを確認</li>
+          <li>既存ドキュメントの<strong>要約・書き換え・トーン変更</strong></li>
+          <li>メール・会議・ファイルから<strong>情報を引用して反映</strong></li>
+          <li>Word スタイル（見出し・書式）を<strong>保持して生成</strong></li>
+          <li>Web 検索・Work IQ ソースの<strong>引用即時表示</strong>（2026 年 3 月以降）</li>
+          <li><strong>Lock-free coauthoring</strong> による同一段落の同時編集（2026 年 5〜6 月展開）</li>
+          <li>Copilot Notebooks からの<strong>Word ドキュメント生成</strong></li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li>機密度ラベルで<strong>抽出禁止</strong>に設定された文書の処理</li>
+          <li><strong>IRM 保護</strong>（情報権限管理）された文書への直接編集</li>
+          <li>オフライン環境での動作（クラウド処理必須）</li>
+          <li>組織外が所有する<strong>社外ドキュメント</strong>への参照</li>
+          <li>ローカル PC のみに保存したファイルでの<strong>フル機能利用</strong>（OneDrive 保存が必要）</li>
+          <li><strong>Word でのモデル選択</strong>（Claude vs OpenAI）― 2026 年夏 GA 予定（Roadmap ID 558440）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">Word における主な制約</span>
+      <p><strong>・ファイル保管場所</strong>：Edit with Copilot はドキュメントが OneDrive または SharePoint 上にあるときのみフル機能を発揮する</p>
+      <p><strong>・ファイルサイズ</strong>：Word → PowerPoint 変換時は元の Word ドキュメントが <strong>24 MB 以下</strong>を推奨</p>
+      <p><strong>・共有ファイル</strong>：共有ドキュメントでは Edit with Copilot は変更プレビューを必ず表示してから反映する（誤った共有を防止）</p>
+      <p><strong>・バージョン管理</strong>：Copilot による変更は Word の版履歴に記録されるため、必要に応じて過去バージョンに戻せる</p>
+      <p><strong>・Summarize の設定バリエーション</strong>：「Brief / Standard / Detailed」の切替は引き続き Word for the web のみ提供</p>
+      <p><strong>・モデル選択</strong>：Word のアプリ内 Edit with Copilot は 2026 年 6 月現在 OpenAI モデルが既定。Anthropic Claude 既定化は 2026 年夏予定</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 02: EXCEL ═════════════════════════ -->
+  <section id="sec-02">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <div>
+        <h2>Excel の Copilot <span class="tool-tag">Excel for the web</span></h2>
+        <p class="section-lede">
+          Excel ブラウザ版の Copilot は、<strong>データ分析の民主化</strong>を目指した機能群です。5 月から <strong>Plan モード</strong>（編集前にステップ計画を提示）と <strong>Python 統合</strong>（pandas / scikit-learn / matplotlib を活用）が一般展開。5 月 28 日からは <strong>Claude Opus 4.8</strong> もモデルセレクタで選択可能になりました。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-excel">
+      <div>
+        <div class="tool-strip-title">Excel for the web ― ブラウザ版の Copilot</div>
+        <div class="tool-strip-desc">5 月 4 日から商用クラウドで Anthropic Claude が既定モデルに（管理者有効化が前提、EU/EFTA/UK 除く）。Plan モード ＋ Python 統合 ＋ Claude Opus 4.8 で複雑な分析タスクが大幅に強化。</div>
+        <div class="tool-strip-url">URL <code>https://excel.cloud.microsoft</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">GA + Major Updates</div>
+      </div>
+    </div>
+
+    <h3>Excel アプリ内でできること <span class="h3-en">In-App Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Copilot の起動<br>（共通）</td>
+            <td>リボンの「ホーム」タブ右端の Copilot アイコンから Copilot ペインを開く。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>OneDrive/SharePoint に保存されたワークブックを Excel for the web で開く</li>
+                  <li>リボンの <code>ホーム</code> タブ右端の <code>Copilot</code> アイコンをクリック</li>
+                  <li>右側に Copilot ペインが開く。入力ボックスにプロンプトを入力</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Edit with Copilot<br>（Agent Mode）</td>
+            <td>複数ステップのデータ分析を計画・実行。推論ステップが可視化される。OpenAI / Anthropic のモデル選択が可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot ペインを開く（上記「Copilot の起動」手順参照）</li>
+                  <li>プロンプトボックス下の <code>Tools</code> アイコン（スライダー風のアイコン）をクリック</li>
+                  <li>メニューから <code>Edit with Copilot</code>（または <code>Agent Mode</code>）を選択</li>
+                  <li>モデル切替はプロンプトボックス下のモデル選択メニューから（OpenAI / Anthropic Claude Opus 4.8 / Claude Opus 4.7 等）</li>
+                  <li>プロンプトを入力して送信。複雑な要求には数分かかる場合がある</li>
+                  <li>実行結果を確認し、必要に応じて <code>Ctrl+Z</code> で取消</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Plan モード<span class="new-tag">May</span></td>
+            <td>編集前に Copilot がステップ計画を提示。変更内容を確認してから実行できる。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot ペインを開く</li>
+                  <li>プロンプトボックス上のメニューから <code>Plan</code>（プラン）を選択</li>
+                  <li>プロンプトを入力（例：「月次推移グラフと前年比を追加」）</li>
+                  <li>Copilot が「どのデータを使い、どんな手順で実行するか」を一覧で提示</li>
+                  <li>必要に応じてプランを調整し、<code>Apply</code> で実行</li>
+                </ol>
+              </div>
+              <span class="cell-note">複雑・高影響度のタスクで透明性を保ちたい場合に最適</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Python in Copilot for Excel<span class="new-tag">May</span></td>
+            <td>Copilot から Python（pandas、scikit-learn、matplotlib）を呼び出して高度分析・可視化を実行。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Edit with Copilot を起動</li>
+                  <li>プロンプトに「Python を使って」と明示する、または Python が必要な分析を依頼すると Copilot が Python を直接呼び出す</li>
+                  <li>例：「Python を使ってこの売上データの季節性を分析し、来期予測グラフを作って」</li>
+                  <li>生成された Python コードとチャートはワークブック内に挿入される</li>
+                </ol>
+              </div>
+              <span class="cell-note">Python が有効化されていることが前提。テナント管理者で「Python in Excel」を許可済みである必要</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">数式の自然言語生成</td>
+            <td>「顧客ごとの平均売上を計算する列を追加」のような自然言語指示から数式を生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>対象のデータ範囲を<strong>テーブル化</strong>（<code>Ctrl+T</code>）することを推奨</li>
+                  <li>Copilot ペインに「◯◯を計算する列を追加」と入力</li>
+                  <li>提示された数式プレビューを確認して <code>Insert column</code> で挿入</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">=COPILOT() 関数</td>
+            <td>セル内でプロンプトを実行する新関数。関連セルが変更されると結果も更新される。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>任意のセルに <code>=COPILOT("プロンプト", 参照範囲)</code> と入力</li>
+                  <li>例：<code>=COPILOT("このレビューの感情は？", A2)</code> で各行のレビュー文を感情分析</li>
+                  <li>参照セルが変わると結果も再計算される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">ピボットテーブル・条件付き書式</td>
+            <td>データを要約するピボットテーブル、条件付き書式（「売上 1000 万円以上を緑」等）の生成。</td>
+          </tr>
+          <tr>
+            <td class="row-label">Claude Opus 4.8 モデル選択<span class="new-tag">May–June</span></td>
+            <td>5 月 28 日から Microsoft 365 Copilot ライセンス保有者は Excel の Edit with Copilot で Claude Opus 4.8 を選択可能。Work IQ と組み合わせると組織データに基づく精度向上。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">Excel Agent in Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Excel Agent</td>
+            <td>Copilot Chat から指示して OneDrive 上に Excel ワークブックを生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>ブラウザで <code>https://m365.cloud.microsoft/chat</code> にアクセス</li>
+                  <li>左側メニューの <code>Agents</code> から <code>Excel Agent</code> を選択</li>
+                  <li>プロンプトで作成したいワークブックを指示（例：「月次の売上・支出トラッカーを年次集計付きで作成」）</li>
+                  <li>生成完了後、OneDrive リンクから Excel で開く</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot Notebooks から Excel 生成<span class="new-tag">May–June</span></td>
+            <td>Copilot Notebooks のコンテンツから Excel スプレッドシートを生成（Frontier から 5 月、6 月に世界展開）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li><strong>自然言語での数式作成</strong>（関数名を覚える必要なし）</li>
+          <li><strong>Plan モード</strong>で編集前にステップ計画を確認</li>
+          <li>Python による<strong>高度分析・予測モデル・可視化</strong>（pandas / scikit-learn / matplotlib）</li>
+          <li><strong>OpenAI / Claude Opus 4.8</strong> のモデル選択が可能</li>
+          <li>ピボットテーブル・条件付き書式・グラフの<strong>提案</strong></li>
+          <li><strong>=COPILOT() 関数</strong>でセル内 AI 処理</li>
+          <li><strong>テキストデータ</strong>の感情分析・キーワード抽出</li>
+          <li>Copilot Notebooks からの<strong>Excel ワークブック生成</strong></li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li><strong>Power Query</strong>（ETL 用機能）への直接アクセス</li>
+          <li><strong>200 万セルを超える</strong>データセットでの快適な動作（処理速度低下）</li>
+          <li>構造化されていない<strong>混在データ</strong>の正確な解釈（表形式推奨）</li>
+          <li><strong>ヘッダー・一貫した列型を持たない</strong>データ範囲の分析</li>
+          <li>Excel 本体の<strong>機能範囲を超える</strong>処理</li>
+          <li>旧「App Skills」メニューの<strong>Python Advanced Analysis</strong>（2026 年 2 月末に廃止 → Edit with Copilot / Analyst / Copilot Chat へ移管）</li>
+          <li>モデル切替は <strong>Microsoft 365 Copilot または Microsoft 365 Premium</strong> 加入者のみ</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">Excel における主な制約</span>
+      <p><strong>・データ形式</strong>：Excel テーブル形式（見出し行あり・一貫した列型）で最もよく動作する</p>
+      <p><strong>・データサイズ</strong>：最大 <strong>200 万セル</strong>まで分析可能。これを超えると処理時間が大幅に増加する</p>
+      <p><strong>・ファイル保存先</strong>：Edit with Copilot は OneDrive または SharePoint 上のワークブックで安定動作。3 月以降、Windows / Mac のローカルファイルもサポート対象に拡張されたが、Web 版は引き続きクラウド前提</p>
+      <p><strong>・モデル切替の条件</strong>：OpenAI / Anthropic 切替は Microsoft 365 Copilot または Microsoft 365 Premium 加入者のみ。加えてテナント管理者による Anthropic の「AI providers for other large language models」有効化が必要</p>
+      <p><strong>・既定モデル変更（5 月 4 日）</strong>：商用クラウドの Excel では Anthropic Claude が既定モデルに（EU/EFTA/UK 除く、管理者有効化前提）</p>
+      <p><strong>・Python 実行環境</strong>：Python in Copilot for Excel はテナント管理者の「Python in Excel」有効化が前提</p>
+      <p><strong>・出力検証</strong>：Copilot が出力する数式・分析結果はユーザーによる検証が必須</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 03: POWERPOINT ═════════════════════════ -->
+  <section id="sec-03">
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <div>
+        <h2>PowerPoint の Copilot <span class="tool-tag">PowerPoint for the web</span></h2>
+        <p class="section-lede">
+          PowerPoint ブラウザ版の Copilot は、5 月から <strong>ビルトインスキル 3 種</strong>（Review / Visualize / Prepare for Questions）と <strong>画像モデル選択</strong>（GPT-Image-2 / 1.5、MAI Image 2 Efficient、Flux.2 Flex）が追加。6 月中下旬には <strong>PowerPoint Live で聴講者が文字選択して Copilot 説明を取得</strong>できるようになります。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-ppt">
+      <div>
+        <div class="tool-strip-title">PowerPoint for the web ― Copilot Chat 経由に統一</div>
+        <div class="tool-strip-desc">2026 年 3 月末に Web 版のスライド上部 Sparkle アイコンは廃止済み。すべての操作は右下の Copilot アイコンから開くチャットペインで実行。5 月から Claude Opus 4.8 もモデルセレクタで選択可能。</div>
+        <div class="tool-strip-url">URL <code>https://powerpoint.cloud.microsoft</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">GA + Major Updates</div>
+      </div>
+    </div>
+
+    <h3>PowerPoint アプリ内でできること <span class="h3-en">In-App Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Copilot の起動<br>（共通）</td>
+            <td>スライド右下の Copilot アイコンから Copilot Chat ペインを開く。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>PowerPoint for the web でプレゼンテーションを開く（新規または OneDrive 上の既存）</li>
+                  <li>画面<strong>右下</strong>の <code>Copilot</code> アイコンをクリック</li>
+                  <li>右側に Copilot Chat ペインが開く</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Edit with Copilot<br>（旧 Agent Mode）</td>
+            <td>自然言語プロンプトから新規スライド作成・既存コンテンツ編集・セクション再構成・デザイン改善を実行。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot Chat ペインを開く（上記手順参照）</li>
+                  <li>プロンプトボックス内の <code>Tools</code> アイコンをクリック</li>
+                  <li>ドロップダウンから <code>Edit with Copilot</code>（または <code>Agent Mode</code>）を選択</li>
+                  <li>必要に応じてモデルセレクタから Claude Opus 4.8 等を選択</li>
+                  <li>プロンプトを入力して送信（例：「AI at work をテーマに 6 部門事例のデック作成」）</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">ビルトインスキル：<br>Review this presentation<span class="new-tag">May</span></td>
+            <td>スライドごとに構成・明瞭さ・ストーリーテリングの改善提案を生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot Chat ペインを開く</li>
+                  <li>プロンプトボックス上のスキル候補またはサジェスト一覧から <code>Review this presentation</code> をクリック</li>
+                  <li>提案リストを確認し、適用したい提案を選択して反映</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">ビルトインスキル：<br>Visualize this slide<span class="new-tag">May</span></td>
+            <td>テキストが多いスライドをビジュアル豊富な構成に変換。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>変換したいスライドを選択した状態で Copilot ペインを開く</li>
+                  <li>スキル一覧から <code>Visualize this slide</code> をクリック</li>
+                  <li>提案された複数のビジュアル案から採用したいものを選択</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">ビルトインスキル：<br>Prepare for Questions<span class="new-tag">May</span></td>
+            <td>プレゼンの弱点と想定質問を抽出し、回答ドラフトを生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot ペインを開く</li>
+                  <li>スキル一覧から <code>Prepare for Questions</code> をクリック</li>
+                  <li>想定質問と回答案が表示される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">画像モデル選択<span class="new-tag">May</span></td>
+            <td>画像生成・編集時に使用するモデルを選択可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Copilot ペインで画像生成を依頼（例：「コーヒーマシンの写実的な画像を生成」）</li>
+                  <li>プロンプトボックス下のモデルピッカーから選択：</li>
+                  <li>　・<code>Auto</code>（リクエストに応じて最適モデルを判断して選択）</li>
+                  <li>　・<code>GPT-Image-2</code>（OpenAI 最新 / 2026 年 4 月 21 日リリース）</li>
+                  <li>　・<code>GPT-Image-1.5</code>（OpenAI 従来モデル）</li>
+                  <li>　・<code>MAI Image 2 Efficient</code>（Microsoft AI モデル、高速）</li>
+                  <li>　・<code>Flux.2 Flex</code>（Black Forest Labs モデル、高品質ビジュアル）</li>
+                  <li>生成画像が選択モデルで返される</li>
+                </ol>
+              </div>
+              <span class="cell-note">生成画像には C2PA 標準に基づく AI 生成コンテンツ証明（content credentials）が付与される</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">プレゼン一括作成</td>
+            <td>「マーケティング戦略の 10 枚スライドデックを作成」のような指示で構成されたデックを一括生成。</td>
+          </tr>
+          <tr>
+            <td class="row-label">Word 文書からの変換</td>
+            <td>Word ファイルの見出し構造（Styles）を解析し、対応するスライドに分割。画像も取り込む。
+              <span class="cell-note">Word 文書は <strong>24 MB 以下</strong>が推奨</span>
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>元の Word 文書を OneDrive に保存</li>
+                  <li>新規 PowerPoint を開く → Copilot Chat ペインを開く</li>
+                  <li>プロンプトボックスで <code>/</code> を入力 → Word 文書名を入力して参照</li>
+                  <li>「この Word 文書からプレゼンを作成」と指示</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label"><span class="term-inline">Brand Kit</span> 連携</td>
+            <td>Brand Kit（承認済みテンプレート・ロゴ・カラー・フォントの組織アセット）から、ブランド準拠スライドを生成。
+              <span class="cell-note">Brand Kit 準拠チェック機能は現時点で英語（en-us）のみ対応</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">スライド要約・翻訳</td>
+            <td>デック全体の要約と、特定スライドへの質問応答。閲覧専用モードでも利用可能。個別スライドまたはデック全体の翻訳。</td>
+          </tr>
+          <tr>
+            <td class="row-label">Claude Opus 4.8 モデル選択<span class="new-tag">May–June</span></td>
+            <td>5 月 28 日から Microsoft 365 Copilot ライセンス保有者は PowerPoint で Claude Opus 4.8 を選択可能。マルチターン編集の精度向上。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>PowerPoint Live ＋ Teams でできること <span class="h3-en">Audience Experience</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">PowerPoint Live で Copilot Explain<span class="new-tag">June</span></td>
+            <td>聴講者がスライド上の用語・略語を選択し、Copilot から個別に説明を取得。発表者を妨げない。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（聴講者側 / Web 版）</span>
+                <ol>
+                  <li>Teams 会議で PowerPoint Live により発表されているスライドを表示</li>
+                  <li>聴講者は<strong>説明が欲しい単語・フレーズをドラッグ選択</strong></li>
+                  <li>プレゼンタービュー下部のツールバーから <code>Copilot</code> アイコンをクリック</li>
+                  <li>Copilot メニューから <code>Explain this</code> を選択</li>
+                  <li>Copilot Chat ペインに該当用語の個別説明が表示される（他参加者には見えない）</li>
+                </ol>
+              </div>
+              <span class="cell-note">発表は PowerPoint Live で行う必要あり。聴講者側に Microsoft 365 Copilot（Premium）ライセンスが必要</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">PowerPoint Agent in Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">PowerPoint Agent</td>
+            <td>Copilot Chat から自然言語で指示し、OneDrive 上に構成されたスライドデックを生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>ブラウザで <code>https://m365.cloud.microsoft/chat</code> にアクセス</li>
+                  <li>左側メニューの <code>Agents</code> から <code>PowerPoint Agent</code> を選択</li>
+                  <li>プロンプトボックスの <code>+</code> アイコン → <code>Add work content</code> で OneDrive ファイルを参照（推奨）</li>
+                  <li>プロンプトでデックを指示（例：「McKinsey レポートからエグゼクティブブリーフを作成」）</li>
+                </ol>
+              </div>
+              <span class="cell-note">参照ファイル追加時は <code>Upload images and files</code> ではなく <code>Add work content</code> を使うと精度が向上</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot Notebooks から PowerPoint 生成<span class="new-tag">May–June</span></td>
+            <td>Copilot Notebooks のコンテンツから PowerPoint プレゼンを生成（Frontier から 5 月、6 月に世界展開）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li><strong>プロンプトから完成度の高いデック</strong>を作成</li>
+          <li><strong>ワンクリックのビルトインスキル 3 種</strong>（Review / Visualize / Prepare for Questions）</li>
+          <li><strong>4 種の画像モデル選択</strong>（GPT-Image-2 / 1.5、MAI Image 2 Efficient、Flux.2 Flex）</li>
+          <li>Word ドキュメントからの<strong>スライド変換</strong></li>
+          <li>Brand Kit による<strong>ブランド準拠</strong>デック生成</li>
+          <li><strong>PowerPoint Live で聴講者 Copilot Explain</strong>（6 月）</li>
+          <li><strong>Claude Opus 4.8</strong> でマルチターン編集精度向上</li>
+          <li>スライドデック全体・特定スライドの<strong>翻訳・要約</strong></li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li>Brand Kit 準拠チェックは現時点で<strong>英語（en-us）のみ対応</strong></li>
+          <li>非常に大きな・複雑なプレゼンは<strong>システム上限を超える</strong>可能性</li>
+          <li>高度な<strong>アニメーション・トランジション</strong>の新規作成（既存維持程度）</li>
+          <li>SharePoint Brand Centre の設定の<strong>直接参照</strong>（Brand Kit と別機能）</li>
+          <li>スライド上部の<strong>Sparkle アイコン</strong>経由での操作（2026 年 3 月末廃止済み）</li>
+          <li>PowerPoint Live Copilot Explain は<strong>発表者側のライセンスに依存しない</strong>が、聴講者側に Copilot Premium ライセンスが必要</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">PowerPoint における主な制約</span>
+      <p><strong>・UI 統一</strong>：2026 年 3 月末以降、すべての Copilot 操作は右下 Copilot アイコンから開くチャットペインに集約済み（スライド上部 Sparkle アイコンは廃止）</p>
+      <p><strong>・言語</strong>：Edit with Copilot の一部機能（Brand Kit 準拠チェック）は英語（en-us）に限定</p>
+      <p><strong>・Word 変換</strong>：Word 文書は <strong>24 MB 以下</strong>、Styles を正しく設定することで精度が大幅に向上</p>
+      <p><strong>・Brand Kit</strong>：現時点では Edit with Copilot 経由でのみ Brand Kit を利用可能</p>
+      <p><strong>・既定モデル変更（5 月 4 日）</strong>：商用クラウドで Anthropic Claude が PowerPoint の既定モデル化（EU/EFTA/UK 除外、管理者有効化前提）</p>
+      <p><strong>・PowerPoint Live Copilot Explain</strong>：発表が PowerPoint Live で行われ、聴講者が Microsoft 365 Copilot（Premium）ライセンスを保有していることが前提</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 04: OUTLOOK ═════════════════════════ -->
+  <section id="sec-04">
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <div>
+        <h2>Outlook の Copilot <span class="tool-tag">Outlook for the web</span></h2>
+        <p class="section-lede">
+          Outlook for the web の Copilot は、4 月 27 日から <strong>Calendar エージェント（Frontier）</strong>が利用可能になり、受信トレイ整理・予定調整を継続的に実行できるようになりました。6 月から世界展開に拡大中。すべての操作はユーザー承認が前提です（自律送信は不可）。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-outlook">
+      <div>
+        <div class="tool-strip-title">Outlook for the web ― New Outlook 体験が必須</div>
+        <div class="tool-strip-desc">4 月 27 日から Frontier で Calendar エージェント・受信トレイ整理・予定調整の継続実行が利用可能。6 月から GA に拡大中。すべてのアクションはユーザー承認が必須。</div>
+        <div class="tool-strip-url">URL <code>https://outlook.office.com</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">GA + Rolling Out</div>
+      </div>
+    </div>
+
+    <h3>Outlook アプリ内でできること <span class="h3-en">In-App Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Draft with Copilot<br>（新規メール作成）</td>
+            <td>プロンプトから新規メール文を生成。スレッドコンテキスト・組織情報を踏まえて作成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Outlook for the web（New Outlook）で <code>ホーム</code> → <code>新しいメール</code>をクリック</li>
+                  <li>メール本文入力エリア上部のツールバーから <code>Copilot</code> アイコンをクリック（ない場合は本文エリアの <code>Draft with Copilot</code> を直接クリック）</li>
+                  <li>ドロップダウンメニューから <code>Draft</code>（下書き）を選択</li>
+                  <li>プロンプトを入力 → <code>Generate</code>（生成矢印）をクリック</li>
+                  <li>生成結果に対して <code>Keep it</code> / <code>Adjust</code> / <code>Regenerate</code> を選択</li>
+                </ol>
+              </div>
+              <span class="cell-note">プレーンテキスト形式では利用不可。<code>設定</code> → <code>メール</code> → <code>作成と返信</code> → <code>HTML</code> に切替</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Summarize<br>（スレッド要約）</td>
+            <td>長いメールスレッドから決定事項・依頼内容・次のアクションを抽出。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>要約したいメールスレッドを開く</li>
+                  <li>メールの冒頭（件名の下あたり）に表示される <code>Summary by Copilot</code> バナーをクリック</li>
+                  <li>要約が展開される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Coaching by Copilot<br>（下書きレビュー）</td>
+            <td>自分が書いた下書きのトーン・明瞭さ・感情面にフィードバックを提供。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>メールの下書きを 100 文字以上入力</li>
+                  <li>本文エリアの <code>Copilot</code> アイコン → <code>Coaching by Copilot</code> を選択</li>
+                  <li>提案されたフィードバックから <code>Apply all suggestions</code> で一括反映</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Prioritize my inbox</td>
+            <td>未読メールを重要度順に並べ替え。緊急・高影響の項目を先に表示。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>受信トレイを開く</li>
+                  <li>リボン右上の <code>Copilot</code> アイコンをクリックして Copilot Chat ペインを開く</li>
+                  <li>「未読メールを重要度順に並べて」とプロンプトを入力</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">会議準備</td>
+            <td>関連メール・チャット・ファイル・アクション項目を事前にまとめる。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>カレンダー ビューで対象の会議をクリック</li>
+                  <li>会議詳細ペイン内の <code>Prepare for this meeting</code>（Copilot）をクリック</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Calendar エージェント<span class="new-tag">June</span></td>
+            <td>受信メールから会議候補時刻の検索・会議室予約・アジェンダ下書きまでを継続実行（4 月 27 日から Frontier、6 月一般展開）。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>対象メールスレッドを開く</li>
+                  <li>メール上部の <code>Schedule with Copilot</code> ボタンをクリック</li>
+                  <li>Copilot Chat が開き、関連情報をスレッドから読み取り</li>
+                  <li>候補時刻一覧から選択して会議室・アジェンダを確認</li>
+                  <li>承認すれば招待送信</li>
+                </ol>
+              </div>
+              <span class="cell-note">「マネージャーからの会議は常に承諾」のようなカスタムルールも自然言語で設定可能（要 Frontier 有効化）</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">添付ファイル検索</td>
+            <td>メール添付ファイルを Copilot で横断検索。2026 年 2 月から提供。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">Outlook via Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Implicit Grounding<br>（暗黙のグラウンディング）<span class="new-tag">May–June</span></td>
+            <td>Outlook で開いているメール本文・テキストを Copilot Chat のプロンプトに直接コンテキストとして追加。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Outlook で参照したいメールを開く</li>
+                  <li>同じ画面で Copilot Chat ペインを開く（リボン右上の <code>Copilot</code> アイコン）</li>
+                  <li>プロンプトボックスに件名やプレビューが即時にコンテキストとして表示される</li>
+                  <li>そのままプロンプトを送信すると、開いているメールに基づいた応答が返る</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">チャットからメール送信</td>
+            <td>Copilot Chat から下書きから送信まで完結。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Outlook 内のリボン右上 <code>Copilot</code> アイコンをクリック</li>
+                  <li>「山田さんと佐藤さんに、先週のミーティング決定事項とタイムラインを送信する下書きを作成」と指示</li>
+                  <li>下書きを Copilot Chat 内で調整 → そのまま送信</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">スケジュールされたプロンプト</td>
+            <td>「毎朝 8 時 30 分に未読メールを要約」などの定期実行プロンプトを設定。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li><code>https://m365.cloud.microsoft/chat</code> にアクセス</li>
+                  <li>プロンプトを実行</li>
+                  <li>プロンプト上にマウスを重ね、<code>Schedule this prompt</code> を選択</li>
+                  <li>時刻・頻度を設定（例：毎日 8:30）</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li>トーン・長さを指定した<strong>メール下書き作成</strong></li>
+          <li>長いスレッドから<strong>決定事項・タスクを抽出</strong></li>
+          <li>チャットから<strong>メール送信・会議作成</strong>までを完結</li>
+          <li><strong>優先度付けと重要メール抽出</strong></li>
+          <li>Calendar エージェントによる<strong>受信トレイ整理・予定調整の継続実行</strong></li>
+          <li>定期実行する<strong>スケジュールプロンプト</strong></li>
+          <li><strong>Implicit Grounding</strong> でメール内容をチャットに直接渡せる</li>
+          <li><strong>メール添付ファイルの横断検索</strong></li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li><strong>署名付き・暗号化メール</strong>への対応</li>
+          <li><strong>IRM 保護</strong>されたメールの処理</li>
+          <li>一部の<strong>MIP ラベル付き</strong>メールの処理</li>
+          <li>Draft with Copilot は<strong>プレーンテキスト形式</strong>メールに非対応</li>
+          <li><strong>Classic Outlook（旧 Outlook）</strong>の Web 版 ― 新機能の多くは New Outlook のみ</li>
+          <li>Prioritize my inbox は<strong>Tier 1 言語</strong>のみ対応で段階拡張中</li>
+          <li>ユーザー承認なしの<strong>自律的メール送信</strong>（承認必須）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">Outlook における主な制約</span>
+      <p><strong>・バージョン</strong>：Web 版は <strong>New Outlook</strong> でのみ最新機能が利用可能。Classic Outlook Web では対象外</p>
+      <p><strong>・メール形式</strong>：Draft with Copilot は HTML 形式でのみ動作。プレーンテキスト設定のユーザーは設定変更が必要</p>
+      <p><strong>・暗号化・IRM</strong>：署名・暗号化・IRM・一部の MIP ラベル付きメールはサポート対象外</p>
+      <p><strong>・言語対応</strong>：Prioritize my inbox は Tier 1 言語のみ。要約・下書きは多言語対応</p>
+      <p><strong>・送信権限</strong>：最終送信・カレンダー登録は<strong>常にユーザーの承認</strong>が必要</p>
+      <p><strong>・Calendar エージェント</strong>：6 月時点では Frontier 中心。一般展開は順次拡大中</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 05: TEAMS ═════════════════════════ -->
+  <section id="sec-05">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <div>
+        <h2>Teams の Copilot <span class="tool-tag">Teams for the web</span></h2>
+        <p class="section-lede">
+          Teams for the web の Copilot は <strong>会議の体験を再定義</strong>します。5 月から <strong>Consecutive Interpretation</strong>（ターン制翻訳、10 言語）、<strong>Call Delegation</strong>（Copilot による電話応対）が GA。Intelligent Recap・Facilitator・Video Recap も継続して強化中です。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-teams">
+      <div>
+        <div class="tool-strip-title">Teams for the web ― 会議中・チャット・チャネル・通話に統合</div>
+        <div class="tool-strip-desc">5 月から Consecutive Interpretation（10 言語）、Call Delegation が GA。月 20 時間／人の翻訳時間枠付き。会議オーガナイザーが会議中に AI（Copilot/Facilitator/Recap）のオン/オフ切替も可能に（6 月）。</div>
+        <div class="tool-strip-url">URL <code>https://teams.microsoft.com</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">GA + Major Updates</div>
+      </div>
+    </div>
+
+    <h3>Teams 会議中・会議後にできること <span class="h3-en">In-Meeting Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">会議中の Copilot</td>
+            <td>会議中に Copilot ペインを開き、議論について質問可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Teams 会議に参加している状態で、会議コントロール（画面上部）の <code>Copilot</code> アイコンをクリック</li>
+                  <li>右側に Copilot ペインが開く。質問プロンプトを入力</li>
+                </ol>
+              </div>
+              <span class="cell-note">事前に会議オーガナイザーが「Allow Copilot」設定を有効化する必要がある</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">遅刻時のキャッチアップ</td>
+            <td>開始から <strong>5 分以上経過</strong>して参加した場合、Copilot が通知。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>会議に 5 分以上遅れて参加すると、Copilot から通知が表示される</li>
+                  <li>通知内の <code>Open Copilot</code> をクリック</li>
+                  <li>右側ペインに要約が生成される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Intelligent Recap<br>（会議後要約）</td>
+            <td>会議終了後に決定事項・アクション項目・発言者別要約を生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>会議後、Teams の <code>カレンダー</code> または <code>チャット</code> から該当会議を開く</li>
+                  <li><code>Recap</code>（要約）タブをクリック</li>
+                  <li>AI-generated notes（AI 生成メモ）を確認</li>
+                </ol>
+              </div>
+              <span class="cell-note">会議中に<strong>ライブ文字起こし</strong>を有効化している必要がある</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">カスタム Recap テンプレート</td>
+            <td>Speaker Summary / Executive Summary の既定 2 種類 ＋ カスタム形式で保存・再利用（2026 年 2 月世界展開）。</td>
+          </tr>
+          <tr>
+            <td class="row-label"><span class="term-inline">Facilitator</span> エージェント</td>
+            <td>会議の進行補佐 AI。リアルタイムメモ、アジェンダ読上、タイムキーピング。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>会議スケジュール時：会議作成画面の <code>Meeting options</code> → <code>Allow Copilot and Facilitator</code> を <code>On</code> にし、Facilitator トグルをオン</li>
+                  <li>会議中：画面上部の <code>More (...)</code> → <code>Facilitator</code> でオン</li>
+                </ol>
+              </div>
+              <span class="cell-note">Teams 管理センターで Facilitator アプリ有効化と Loop コンポーネント有効化が前提</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Consecutive Interpretation<span class="new-tag">May–June</span></td>
+            <td>話者ごとにターン制で翻訳する新モード。Interpreter エージェントが会議ステージに表示される。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>会議オーガナイザー（Microsoft 365 Copilot ライセンス保有者）が会議参加中に、画面上部の <code>More (...)</code> → <code>Turn on Interpreter</code> をクリック</li>
+                  <li>表示メニューで <code>Consecutive interpretation</code> を選択</li>
+                  <li>翻訳する 2 言語のペアを選択して有効化</li>
+                  <li>Interpreter エージェントが会議ステージに表示され、すべての参加者に共有される</li>
+                </ol>
+              </div>
+              <span class="cell-note">対応言語：英語、フランス語、ドイツ語、スペイン語、イタリア語、ポルトガル語、中国語（簡体字／繁体字）、日本語、韓国語 ― 計<strong>10 言語</strong>のペア</span>
+              <span class="cell-note">月<strong>20 時間／人</strong>の翻訳時間枠付き。オーガナイザーのみライセンス必要（聴講者は不要）</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Real-time Simultaneous<br>Interpretation</td>
+            <td>従来からの同時通訳モード。話者の話と同時に翻訳が流れる。大規模イベントや継続的な翻訳が必要な場面に最適。</td>
+          </tr>
+          <tr>
+            <td class="row-label">AI の会議中オン／オフ切替<span class="new-tag">June</span></td>
+            <td>会議オーガナイザーは会議中でも Copilot / Facilitator / Recap のオン／オフを動的に切替可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>オーガナイザーは会議中に画面上部の <code>More (...)</code> → <code>Meeting options</code> を開く</li>
+                  <li><code>Allow Copilot</code> や <code>Recap</code> のトグルでオン／オフを切替</li>
+                </ol>
+              </div>
+              <span class="cell-note">6 月初〜中旬：Targeted Release、6 月中〜末：GA</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Video Recap</td>
+            <td>録画された<strong>英語</strong>会議のナレーション付きハイライト動画を生成（Microsoft 365 Copilot ライセンス必須）。
+              <span class="cell-note">1 会議につき 1 回生成。英語録画のみ対応</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Audio Recap</td>
+            <td>会議の文字起こしから音声ナレーションを生成。話者数（1 または 2 名）、トーン、長さ調整可。英語のみ対応。</td>
+          </tr>
+          <tr>
+            <td class="row-label">Recap without transcript<span class="new-tag">May–June</span></td>
+            <td>コンプライアンス要件等で文字起こしを無効化した会議でも、会議チャットから Recap を生成（MC1275312）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Teams チャット・チャネル・通話でできること <span class="h3-en">Chat / Channel / Call Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">チャット要約</td>
+            <td>長いスレッド・チャットの主要トピックを要約。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Teams 左側メニューから <code>Chat</code> をクリック → 対象チャットを選択</li>
+                  <li>チャット画面<strong>右上</strong>の <code>Open Copilot</code> アイコン（Copilot ロゴ）をクリック</li>
+                  <li>右側の Copilot ペインで「Summarize what I've missed」などを選択・入力</li>
+                </ol>
+              </div>
+              <span class="cell-note">既定の参照期間は<strong>過去 30 日</strong>。プロンプトに「December 2025」のように期間指定可能</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">チャネルスレッド要約</td>
+            <td>チャネルのスレッドを要約（最低 <strong>1000 文字</strong>以上のテキストが必要）。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Teams 左側メニュー <code>Teams</code> → 対象チャネル</li>
+                  <li>チャネル投稿の下の <code>返信リンク</code> から全会話を展開</li>
+                  <li>スレッド末尾の <code>Summarize thread</code> または <code>More actions (...)</code> → <code>Summarize thread</code> をクリック</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Call Delegation<span class="new-tag">May–June</span></td>
+            <td>Copilot が受信着信に対応し、コンテキストを聞き出して、後続予約まで Microsoft Bookings 経由で設定。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Teams 左下の <code>Calls</code> アイコンをクリック</li>
+                  <li>右上の <code>...</code> → <code>Call settings</code> → <code>Call handling and forwarding</code> へ移動</li>
+                  <li><code>Copilot call delegation</code> セクションでオンに切替</li>
+                  <li>Microsoft Bookings 連携設定を確認</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">メッセージのリライト</td>
+            <td>投稿前のメッセージのトーン・明瞭さを調整。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li>会議中の<strong>リアルタイム要約・質問応答</strong></li>
+          <li>会議後の<strong>Intelligent Recap</strong>（多言語対応）</li>
+          <li><strong>カスタムテンプレート</strong>で組織スタイル準拠</li>
+          <li>Facilitator による<strong>進行補佐・タイムキーピング</strong></li>
+          <li><strong>10 言語の Consecutive Interpretation</strong>（ターン制翻訳、5 月 GA）</li>
+          <li><strong>Call Delegation</strong> で電話応対を Copilot に委任</li>
+          <li>会議オーガナイザーが<strong>AI のオン／オフを動的切替</strong>（6 月）</li>
+          <li>文字起こしなしの会議でも<strong>Recap 生成</strong>可能</li>
+          <li>チャネルスレッドの<strong>要約</strong>（1000 文字以上）</li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li><strong>組織外が主催</strong>する会議での Copilot 利用</li>
+          <li>文字起こし（transcription）が<strong>オフ</strong>の会議への事後質問（Recap without transcript はチャット限定）</li>
+          <li><strong>Video Recap</strong> は英語録画会議のみ対応</li>
+          <li><strong>Audio Recap</strong> は英語のみ</li>
+          <li>画像・Loop コンポーネント・ファイルの<strong>要約（チャット内）</strong></li>
+          <li><strong>機密度ラベルでエクスポート禁止</strong>の会議 ― Copilot 応答を Word/Excel エクスポート不可</li>
+          <li>外部参加者の<strong>Facilitator 閲覧</strong>（社外参加者は除外）</li>
+          <li>Consecutive Interpretation 月<strong>20 時間／人を超える</strong>翻訳時間</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">Teams における主な制約</span>
+      <p><strong>・会議の所属組織</strong>：参加者自身の組織が主催していない会議では Copilot が利用できない</p>
+      <p><strong>・文字起こしの必須</strong>：会議後に Copilot に質問したり、Facilitator を使うには<strong>ライブ文字起こし</strong>の有効化が必要</p>
+      <p><strong>・会議チャットのデータ範囲</strong>：文字起こしが開始されていれば、会議の<strong>24 時間前</strong>までのチャット履歴が Copilot の参照対象に含まれる</p>
+      <p><strong>・チャット要約のデータ範囲</strong>：既定で過去<strong>30 日間</strong>。明示的な期間指定が可能</p>
+      <p><strong>・チャネルスレッド要約の閾値</strong>：スレッドが<strong>最低 1000 文字</strong>のテキストを持つ必要がある</p>
+      <p><strong>・Consecutive Interpretation</strong>：会議オーガナイザーに Microsoft 365 Copilot ライセンス必要。月 20 時間／人の翻訳時間枠。10 言語限定（日本語含む）</p>
+      <p><strong>・Video Recap</strong>：録画された英語会議のみ。Copilot ライセンス必須</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 06: SHAREPOINT ═════════════════════════ -->
+  <section id="sec-06">
+    <div class="section-head">
+      <div class="section-num">06</div>
+      <div>
+        <h2>SharePoint の Copilot <span class="tool-tag">SharePoint Online</span></h2>
+        <p class="section-lede">
+          SharePoint の Copilot は 2026 年 4 月に <strong>「AI in SharePoint」から「Copilot in SharePoint」</strong>に改称、<strong>6 月中旬から opt-in 方式が opt-out 方式に転換</strong>（既定で全サイトに展開）。サイトページ右下に floating Copilot ボタンが表示されます。エージェント Builder では <strong>SharePoint リストを知識源に指定可能</strong>（最大 20,000 項目）になりました。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-sp">
+      <div>
+        <div class="tool-strip-title">Copilot in SharePoint（旧 AI in SharePoint）</div>
+        <div class="tool-strip-desc">6 月中旬から KnowledgeAgentScope のデフォルトが NoSites → AllSites に変更（opt-out 方式に転換）。サイトページ・ドキュメントライブラリ・リストの右下に floating Copilot ボタンが表示。SharePoint リストもエージェントの知識源に指定可能（最大 20,000 項目）。</div>
+        <div class="tool-strip-url">URL <code>https://[テナント名].sharepoint.com</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">GA + Default-On (June)</div>
+      </div>
+    </div>
+
+    <h3>SharePoint サイト上でできること <span class="h3-en">In-Site Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Floating Copilot ボタン<span class="new-tag">June</span></td>
+            <td>サイトページ・ドキュメントライブラリ・リストの<strong>右下に表示される</strong>常設 Copilot ボタンから利用。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>SharePoint サイトを開く（ホーム・ライブラリ・リストのいずれか）</li>
+                  <li>画面<strong>右下</strong>の floating <code>Copilot</code> アイコンをクリック</li>
+                  <li>チャットペインが開き、サイト内の情報に基づくプロンプトを入力可能</li>
+                </ol>
+              </div>
+              <span class="cell-note">6 月中旬から全テナントへ展開開始（MC1311968、Roadmap ID 501451）</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Ready-made エージェント<br>（既定エージェント）</td>
+            <td>全モダンサイトと全ドキュメントライブラリに既定で搭載。サイト全体を範囲とし、権限のある情報のみ検索・要約・質問応答。
+              <span class="cell-note">管理者は PowerShell の KnowledgeAgentScope パラメータで挙動を制御可能（NoSites / ExcludeSelectedSites / AllSites）</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">カスタムエージェント<br>（ドキュメントライブラリから）</td>
+            <td>ライブラリ、フォルダー、ファイル群にスコープした独自エージェントをノーコードで作成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>対象ドキュメントライブラリを開く（サイト編集権限が必要）</li>
+                  <li>ライブラリ上部の <code>+ New</code> メニュー → <code>Agent</code> を選択</li>
+                  <li>（または特定ファイルを選択 → <code>...</code> → <code>Create an agent</code>）</li>
+                  <li>作成画面で <code>Overview</code>（名前・アイコン・目的）、<code>Sources</code>（知識ソース）、<code>Behavior</code>（振る舞い）を設定</li>
+                  <li><code>Create</code> をクリック。<code>.agent</code> ファイルが Site Assets/Copilots に保存</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">SharePoint List Agent<span class="new-tag">June</span></td>
+            <td>Agent Builder で SharePoint リストを知識源に指定（最大 20,000 アイテム）。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Agent Builder で新規エージェントを作成、または既存エージェントを編集</li>
+                  <li><code>Sources</code>（知識源）セクションで <code>Add source</code> をクリック</li>
+                  <li><code>SharePoint list</code> を選択し、対象リストを検索・選択</li>
+                  <li>エージェントを保存</li>
+                </ol>
+              </div>
+              <span class="cell-note">1 エージェントにつき<strong>1 つの SharePoint リスト・最大 20,000 アイテム</strong>。リスト添付ファイル・lookup 列は現時点で未対応（Roadmap ID 561920）</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Approved（承認済み）化</td>
+            <td>作成エージェントを「承認済み」として公開し、Agent ピッカー右ペインに掲載。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>作成したエージェントを開き <code>...</code> → <code>Set as an approved agent</code></li>
+                  <li>確認画面で再度 <code>Set as an approved agent</code> を確認</li>
+                  <li>Site Assets の <code>Copilot</code> → <code>Approved</code> フォルダーに移動される</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot Skills<span class="new-tag">June</span></td>
+            <td>反復可能な多段階ワークフローをサイト固有の再利用可能アセットとして保存。組織標準（ドキュメントガイドライン、リスト等）を自然言語で取得可能。
+              <span class="cell-note">Markdown ベースの SKILL.md ファイルとして <code>/Agent Assets/Skills/</code> に保存される</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">AI Charts web part<span class="new-tag">May–June</span></td>
+            <td>自然言語からチャートを作成する web part。SharePoint ページに直接埋め込み可能。</td>
+          </tr>
+          <tr>
+            <td class="row-label">File Actions<span class="new-tag">June</span></td>
+            <td>Copilot Chat への自然言語指示で、SharePoint ライブラリのファイルを検索・分析・整理する機能。「これらのファイルを日付順にリネームして」「古いレポートをアーカイブフォルダーに移動して」といった指示を解釈し、<strong>実行計画を提示してユーザーの承認後に実行</strong>する。
+              <span class="cell-note">Roadmap ID 560796、2026 年 6 月展開予定（Web 版）。承認制のため、誤操作のリスクを抑えつつ一括処理が可能</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Authoritative Sites<span class="new-tag">May–June</span></td>
+            <td>管理者が SharePoint サイトを「Trusted（信頼済み）」マーク付けし、Copilot 応答の優先ソースに指定可能。</td>
+          </tr>
+          <tr>
+            <td class="row-label">ページのリッチテキスト Copilot</td>
+            <td>SharePoint ページのテキスト Web パートで、文章生成・リライト・トーン変更・凝縮・詳細化が可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>SharePoint ページを編集モードで開く</li>
+                  <li>テキスト Web パートを追加または選択</li>
+                  <li>表示される Copilot アイコンをクリック</li>
+                  <li>プロンプトを入力して生成、または既存テキストを選択して <code>Rewrite</code>／<code>Change tone</code>／<code>Condense</code>／<code>Elaborate</code></li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">SharePoint via Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">SharePoint サイト・<br>リストのグラウンディング</td>
+            <td>Copilot Chat プロンプトに SharePoint サイト・リストを参照として含められる。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li><code>https://m365.cloud.microsoft/chat</code> にアクセス</li>
+                  <li>プロンプトボックスで <code>/</code>（スラッシュ）を入力</li>
+                  <li><code>Sites</code> タブからサイト名を検索・選択、またはサイト名を直接入力</li>
+                  <li>選択したサイト・リストを参照にしてプロンプトを送信</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li>全モダンサイトでの<strong>既定エージェント応答</strong></li>
+          <li>ノーコードでの<strong>カスタムエージェント作成</strong></li>
+          <li>最大<strong>20 個</strong>のソース（サイト・ライブラリ・フォルダー・ファイル）登録</li>
+          <li><strong>SharePoint リスト</strong>もエージェント知識源に指定可（最大 20,000 アイテム）</li>
+          <li>ページリッチテキスト編集での<strong>Copilot 支援</strong></li>
+          <li>SharePoint 権限と機密度ラベルの<strong>厳密な尊重</strong></li>
+          <li>Teams へのエージェント<strong>リンク共有</strong></li>
+          <li><strong>Approved（承認済み）</strong>機能でサイト全ユーザーに可視化</li>
+          <li><strong>Copilot Skills</strong> で組織標準を再利用</li>
+          <li><strong>AI Charts</strong> によるチャート埋め込み</li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li>Ready-made エージェントの<strong>共有・削除・設定変更</strong></li>
+          <li>カスタムエージェントへの<strong>20 個を超えるソース</strong>登録</li>
+          <li>SharePoint List Agent の<strong>リスト添付ファイル・lookup 列</strong>対応（未実装）</li>
+          <li>1 エージェントに<strong>2 つ以上の SharePoint リスト</strong>登録</li>
+          <li><strong>外部（社外）ユーザー</strong>によるエージェント利用</li>
+          <li>モダンサイト以外（<strong>クラシック SharePoint</strong>）でのエージェント作成 UI</li>
+          <li>Restricted Content Discovery（RCD）が<strong>有効化されたサイト</strong>での Copilot エージェント</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">SharePoint における主な制約</span>
+      <p><strong>・ライセンス</strong>：エージェント作成・編集には Microsoft 365 Copilot ライセンス、または Pay-As-You-Go 設定が必要</p>
+      <p><strong>・サイト権限</strong>：カスタムエージェント作成には対象サイトの<strong>編集権限</strong>が必要</p>
+      <p><strong>・ソース数制限</strong>：1 エージェントに登録できるソースは<strong>最大 20 個</strong>。超える場合は親階層へ格納</p>
+      <p><strong>・UI 対応</strong>：エージェント作成 UI は <strong>SharePoint Online モダンサイト</strong>のみ</p>
+      <p><strong>・SharePoint List Agent 制限</strong>：1 エージェントにつき 1 つのリスト・最大 20,000 アイテム。リスト添付・lookup 列は未対応</p>
+      <p><strong>・外部ユーザー</strong>：社外ユーザーはエージェントを利用できない</p>
+      <p><strong>・既定オン化（6 月中旬）</strong>：KnowledgeAgentScope のデフォルトが NoSites → AllSites に変更。既存設定は尊重されるが、未設定テナントは要レビュー（PowerShell SPO Management Shell 16.0.26615.12013 以降）</p>
+      <p><strong>・ガバナンス推奨</strong>：エージェント乱立を防ぐため、中央管理（作成承認・<strong>90 日ごと</strong>のレビュー・オーナー責任明示）が推奨</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ SECTION 07: FORMS ═════════════════════════ -->
+  <section id="sec-07">
+    <div class="section-head">
+      <div class="section-num">07</div>
+      <div>
+        <h2>Forms の Copilot <span class="tool-tag">Microsoft Forms</span></h2>
+        <p class="section-lede">
+          Forms は Web 専用アプリです。Copilot は <strong>アンケート・クイズ作成の最初の一歩を省力化</strong>します。2026 年 3 月に「Surveys Agent」と Copilot Chat がフォーム編集画面に統合され、作成から配信・分析までを AI 支援できるようになりました。
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-strip tool-strip-forms">
+      <div>
+        <div class="tool-strip-title">Microsoft Forms（Web 専用アプリ）</div>
+        <div class="tool-strip-desc">Web 版のみ。2026 年 3 月に Copilot Chat と Surveys Agent が Forms 編集画面に統合済み。Draft with Copilot はフォーム新規作成時のプロンプトボックスから起動。</div>
+        <div class="tool-strip-url">URL <code>https://forms.office.com</code></div>
+      </div>
+      <div class="tool-strip-stat">
+        <div class="tool-strip-stat-label">Status</div>
+        <div class="tool-strip-stat-val">Generally Available</div>
+      </div>
+    </div>
+
+    <h3>Forms アプリ内でできること <span class="h3-en">In-App Features</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Draft with Copilot<br>（新規フォーム作成）</td>
+            <td>「従業員満足度調査を作成」などのプロンプトから、タイトル・説明・質問・回答オプションを含むドラフトを生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Microsoft 365 ホームページの<strong>アプリランチャー</strong>（左上の 9 つの点）→ <code>Forms</code> を選択、または <code>https://forms.office.com</code> に直接アクセス</li>
+                  <li>トップ画面上部の <code>+ New Form</code>（新しいフォーム）をクリック</li>
+                  <li>Copilot のプロンプトボックスが表示される</li>
+                  <li>プロンプトを入力（例：「HR 部門向けの従業員満足度調査を作成」）、または <code>View prompts</code> からサンプルプロンプトを選択</li>
+                  <li><code>Generate</code> をクリック</li>
+                  <li>生成結果に対して <code>Keep it</code> / <code>Regenerate</code>（循環矢印）/ <code>Discard</code>（ゴミ箱）を選択</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Add with Copilot<br>（質問追加）</td>
+            <td>既存フォームに新しい質問を追加する支援。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>既存フォームを開く</li>
+                  <li>フォーム上部の <code>Copilot</code> プロンプトボックス（または Copilot アイコン）をクリック</li>
+                  <li>「好きな食べ物についての質問を追加して」のように指示</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Rewrite with Copilot<br>（既存質問の書直し）</td>
+            <td>質問文の明瞭性・中立性を改善する提案。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>書き直したい質問に<strong>マウスオーバー</strong></li>
+                  <li>表示される <code>Copilot</code> アイコンをクリック</li>
+                  <li>書き直し案を確認 → <code>Replace</code> で反映、<code>Regenerate</code> で再生成</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Answer Explanations<br>（クイズ用）</td>
+            <td>クイズ形式で各選択肢の解説文を AI 生成。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Forms トップページから <code>New Quiz</code> をクリック</li>
+                  <li>クイズ質問と選択肢を入力</li>
+                  <li>正解選択肢に表示される <code>Answer Explanations</code> アイコンをクリック → AI 解説生成</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">Copilot Chat in Forms</td>
+            <td>フォーム編集中に Copilot チャットから改善提案・構造相談（2026 年 3 月統合済み）。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>フォーム編集画面で <code>Copilot</code> アイコンをクリック</li>
+                  <li>チャット形式で質問（例：「この質問の並び順を改善して」）</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">テーマ提案</td>
+            <td>フォーム主題に応じた背景・書体・配色のテーマを複数提案。</td>
+          </tr>
+          <tr>
+            <td class="row-label"><span class="term-inline">Surveys Agent</span></td>
+            <td>質問の明瞭さ調整・フォーム構造改善・招待メッセージ下書き・回答結果 AI 分析を行う AI エージェント。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li>Microsoft 365 Copilot アプリ（<code>m365.cloud.microsoft</code>）の Agent Store → <code>Built by Microsoft</code> セクションから <code>Surveys</code> エージェントをインストール</li>
+                  <li>Copilot Chat の Agent メニューから <code>Surveys</code> を選択</li>
+                  <li>プロンプトで「従業員満足度サーベイを作成・配信・分析」と指示</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="row-label">回答分析・Excel 連携</td>
+            <td>収集回答を Excel for the Web と同期。傾向分析・AI による要約が可能。</td>
+          </tr>
+          <tr>
+            <td class="row-label">配信チャネル</td>
+            <td>短縮 URL・QR コード・Outlook・Teams・埋め込みリンクで配信可能。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Copilot Chat からできること <span class="h3-en">Forms via Copilot Chat</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">機能</th>
+            <th>内容と UI 操作手順（Web 版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Microsoft 365 Copilot アプリ<br>から作成</td>
+            <td>テンプレートベースでフォームを生成。既存ファイルを添付して、その内容をもとに構築も可能。
+              <div class="ui-steps">
+                <span class="ui-steps-label">UI 操作手順（Web 版）</span>
+                <ol>
+                  <li><code>https://m365.cloud.microsoft</code> にアクセス</li>
+                  <li>左側ナビゲーション <code>Create</code> をクリック</li>
+                  <li>「What do you want to create」見出しの下で <code>Create a form</code> を選択</li>
+                  <li>プロンプト入力、または <code>Add a file</code> で Word・Excel・PowerPoint ファイルを添付してフォーム生成</li>
+                </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>できること／できないこと <span class="h3-en">Can / Cannot</span></h3>
+    <div class="dual">
+      <div class="dual-panel dual-panel-ok">
+        <div class="dual-head">できること <small>Capabilities</small></div>
+        <ul class="dual-list">
+          <li>プロンプトから<strong>5〜15 問のアンケート・クイズを一括生成</strong></li>
+          <li><strong>質問の追加・書き直し</strong>で既存フォームを改善</li>
+          <li>よくあるバイアス（誘導質問・二重質問・曖昧表現）の<strong>回避支援</strong></li>
+          <li>目的に応じた<strong>テーマ・配色の AI 提案</strong></li>
+          <li>クイズの<strong>解説文の生成</strong></li>
+          <li>回答データの<strong>AI 要約・傾向分析</strong></li>
+          <li>既存ファイルを元にした<strong>フォーム構築</strong></li>
+          <li>Surveys Agent による<strong>作成・配信・分析</strong>の一連サポート</li>
+        </ul>
+      </div>
+      <div class="dual-panel dual-panel-ng">
+        <div class="dual-head">できないこと <small>Limitations</small></div>
+        <ul class="dual-list">
+          <li><strong>最新のニュース・事実</strong>に基づいた質問生成（Web 検索しない）</li>
+          <li><strong>有害・著作権的に問題</strong>があるコンテンツの生成</li>
+          <li><strong>法律・医療・金融アドバイス</strong>の質問内容</li>
+          <li><strong>人事評価</strong>など就業関連の機密判断を含む内容</li>
+          <li><strong>フィッシング目的</strong>のフォーム作成</li>
+          <li>現時点で<strong>Copilot サジェスチョンの個別オフ</strong>設定（ユーザー単位で無効化不可）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>制約条件 <span class="h3-en">Constraints</span></h3>
+    <div class="callout callout-warn">
+      <span class="callout-title">Forms における主な制約</span>
+      <p><strong>・ライセンス</strong>：Copilot in Forms の利用には Microsoft 365 Copilot ライセンスが必要</p>
+      <p><strong>・入力制限</strong>：プロンプトの<strong>入力文字数</strong>および<strong>送信頻度</strong>には不正利用防止のための制限が設定されている</p>
+      <p><strong>・生成質問数</strong>：1 フォームあたり Copilot は<strong>5〜15 問程度</strong>の質問を一括生成（トピックにより変動）</p>
+      <p><strong>・回答数制限</strong>：Microsoft 365 サブスクライバーは 1 フォームあたり<strong>最大 50,000 回答</strong>まで収集可能（プランにより異なる）</p>
+      <p><strong>・知識の鮮度</strong>：Copilot は学習データに基づくため、最新情報は正確でない場合あり（Web 検索は行わない）</p>
+      <p><strong>・対応言語</strong>：複数言語対応。ただし言語により品質・サポート状況が異なる</p>
+      <p><strong>・レビュー必須</strong>：生成されたドラフトは<strong>必ずユーザーがレビュー</strong>してから配信</p>
+      <p><strong>・UX 課題</strong>：2026 年 6 月時点で、Copilot サジェスチョンをユーザー単位でオフにする設定は存在しない</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ FOOTER ═════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-label">Scope & Methodology</div>
+        <div class="footer-value">
+          Microsoft 365 Business Standard ＋ Microsoft 365 Copilot ライセンス保有、かつ<strong>ブラウザ版</strong>での利用を前提とした機能調査。<br>
+          2026 年 6 月 13 日時点の Microsoft 公式情報（Support・Learn・Tech Community・Roadmap）に基づき、最新アップデート（Claude Opus 4.8、Plan モード、PowerPoint ビルトインスキル、Consecutive Interpretation、SharePoint 既定オン化等）をすべて反映。
+        </div>
+      </div>
+      <div>
+        <div class="footer-label">Document Control</div>
+        <div class="footer-value">
+          Revision 3.0 ／ June 2026 Update Edition<br>
+          Last Updated : 2026 年 6 月 13 日
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-label">Primary Sources</div>
+    <div class="sources-list">
+      <div>• Microsoft Tech Community『What's New in Microsoft 365 Copilot』（March / April / May / June 2026 全号）</div>
+      <div>• Microsoft Tech Community『Available today: Anthropic Claude Opus 4.8 in Microsoft 365 Copilot』</div>
+      <div>• Microsoft Tech Community『Copilot Notebooks: Enhancements to support creation, collaboration and learning』</div>
+      <div>• Microsoft Support『Get started with Agent Mode in Excel, PowerPoint, and Word』</div>
+      <div>• Microsoft Support『Edit with Copilot in Excel / Word / PowerPoint』</div>
+      <div>• Microsoft Support『How to find and enable missing Copilot button in Microsoft 365 apps』</div>
+      <div>• Microsoft Support『Chat with Copilot in Outlook』</div>
+      <div>• Microsoft Support『Use Copilot in Microsoft Teams meetings / chat and channels』</div>
+      <div>• Microsoft Support『Get started with agents in SharePoint / Create a SharePoint agent』</div>
+      <div>• Microsoft Support『Welcome to Copilot in Forms / Create forms quickly』</div>
+      <div>• Microsoft Insider Blog『Converse naturally across languages with consecutive interpretation』</div>
+      <div>• Microsoft 365 Roadmap（ID 501451, 537269, 542185, 547834, 555895, 555897, 557180, 557256, 558440, 558540, 559111, 559479, 559613, 559614, 560338, 560540, 561920, 562351 等）</div>
+      <div>• Microsoft Message Center（MC1188228, MC1227087, MC1239927, MC1245222, MC1248393, MC1250279, MC1254552, MC1255409, MC1267871, MC1269210, MC1269241, MC1275312, MC1280558, MC1280561, MC1289724, MC1296488, MC1296874, MC1304289, MC1311968 等）</div>
+      <div>• M365 Admin Blog（handsontek.net / 各種 What's new ロールアップ）</div>
+      <div>• Super Simple 365（What's new in Microsoft 365 and Copilot? March〜June 2026）</div>
+      <div>• A Guide to Cloud & AI（Microsoft 365 Copilot March / April / May 2026 Recap）</div>
+      <div>• Topedia Blog / Geeky Gadgets / msftnewsnow / robquickenden.blog（モデル・機能アップデート報道）</div>
+    </div>
+
+    <div class="disclaimer">
+      ※ Microsoft の機能・仕様・制約・UI 操作は頻繁に更新されます。導入検討・実装時は必ず Microsoft 公式サイトおよびパートナー窓口で最新情報をご確認ください。<br>
+      ※ 本レポートは 2026 年 6 月 13 日時点で公開されている情報に基づいており、一部機能は段階的ロールアウト中のため、テナント・地域・ユーザーによって利用可否が異なる可能性があります。<br>
+      ※ UI 上の要素名（ボタン名・メニュー名）は英語表記を基本とし、日本語 UI では表記が異なる場合があります。<br>
+      ※ Microsoft、Microsoft 365、Copilot、Word、Excel、PowerPoint、Outlook、Teams、SharePoint、Forms、Anthropic、Claude、OpenAI、GPT は各社の商標または登録商標です。
+    </div>
+  </footer>
+
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">↑</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('backToTop');
+    function check() {
+      if (window.scrollY > 600) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    check();
+  })();
+</script>
+
+</body>
+</html>
