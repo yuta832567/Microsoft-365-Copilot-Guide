@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microsoft 365 Copilot はじめてガイド ― 7 つのツールでできること（2026 年 9 月版）</title>
+<title>Microsoft 365 Copilot はじめてガイド ― 7 つのツールでできること（2026 年 10 月版）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&amp;family=M+PLUS+Rounded+1c:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -1216,7 +1216,7 @@
       </span>
       <span class="hbadge pink">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
-        2026 年 9 月時点の最新版
+        2026 年 10 月時点の最新版
       </span>
       <span class="hbadge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -1402,6 +1402,8 @@
     </div>
   </div>
 
+  <div class="note reveal" style="margin-top:4px"><strong>【2026 年秋の大事な変更】</strong>Copilot のアプリは、名前が「Microsoft 365 Copilot」から <strong>「Microsoft Copilot」</strong>に変わりました。あわせて、ブラウザでのアクセス先も <code>m365.cloud.microsoft</code> から <strong><code>copilot.cloud.microsoft</code></strong> へ、10 月初旬に順次切り替わります（古いアドレスを開いても新しいアドレスへ案内されます）。社内のネットワーク設定で <code>*.cloud.microsoft</code> がブロックされていると開けないことがあるため、つながらない場合は IT 担当者にご相談ください。</div>
+
   <div class="sec-head reveal">
     <div class="sec-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
     <div>
@@ -1448,6 +1450,10 @@
         <div class="gloss-term">Vision <span class="yomi">ビジョン</span></div>
         <div class="gloss-def">画面に映っているものや、スマホのカメラに映したものを Copilot に「見せて」質問できる機能（2026 年 7 月〜）。エラー画面や実物について、言葉で説明しなくても答えてもらえます。</div>
       </div>
+      <div class="gloss-item">
+        <div class="gloss-term">Office in Copilot <span class="yomi">オフィス・イン・コパイロット</span></div>
+        <div class="gloss-def">Copilot アプリの中で、Word・Excel・PowerPoint を直接作って編集できる新しい体験（10 月 9 日〜、まずは先行利用の Frontier 向け）。アプリを行き来せずに、会話しながら文書・表・スライドを仕上げられます。</div>
+      </div>
     </div>
   </div>
 
@@ -1463,113 +1469,113 @@
 
   <div class="model-list reveal">
     <div class="model-card">
-      <div class="mc-name">GPT-5.5 Instant<span class="mc-sub">ジーピーティー・ファイブポイントファイブ・インスタント</span></div>
-      <div class="mc-desc">応答がとても速いモデル。かんたんな要約や下書きなど、日常のほとんどの作業にちょうどよい。ふだんの基本モデルのひとつです。
-        <span class="mc-where">Chat・Word・Excel・PowerPoint・Outlook・Teams</span>
+      <div class="mc-name">GPT-6 Astra <span class="tag-new">9月</span><span class="mc-sub">ジーピーティー・シックス・アストラ</span></div>
+      <div class="mc-desc">OpenAI 社の最新モデル（9 月 4 日〜）。大きな仕事をまるごと任せて、できあがりを確認する使い方に向いています。おもに Copilot Cowork と Copilot Studio で使えます。
+        <span class="mc-where">Copilot Cowork・Copilot Studio</span>
       </div>
     </div>
     <div class="model-card">
-      <div class="mc-name">GPT-5.6 <span class="tag-new">7月</span><span class="mc-sub">ジーピーティー・ファイブポイントシックス</span></div>
-      <div class="mc-desc">2026 年 7 月 9 日に登場した新しいモデル。複雑で手順の多い作業に強く、Copilot が優先的に選ぶ「おすすめモデル」になりました。Word・Excel・PowerPoint・Chat・Cowork で使えます。
+      <div class="mc-name">GPT-5.6 / 5.5<span class="mc-sub">ジーピーティー・ファイブポイントシックス／ファイブ</span></div>
+      <div class="mc-desc">Word・Excel・PowerPoint・Chat でふだん使う OpenAI のモデル。5.6 は複雑で手順の多い作業に強く、5.5 は応答が速くかんたんな作業向け。用途に応じて選べます。
         <span class="mc-where">Word・Excel・PowerPoint・Chat・Cowork</span>
       </div>
     </div>
     <div class="model-card">
-      <div class="mc-name">Claude Sonnet 5 <span class="tag-new">7月</span><span class="mc-sub">クロード・ソネット・ファイブ</span></div>
-      <div class="mc-desc">Anthropic（アンソロピック）社の新しいモデル（7 月 2 日〜）。文書・表計算・スライドをまたぐ多段階の作業が得意。PowerPoint・Word・Cowork で選べます。
+      <div class="mc-name">Claude Sonnet 5 / Opus 5 <span class="tag-new">夏〜秋</span><span class="mc-sub">クロード・ソネット／オーパス・ファイブ</span></div>
+      <div class="mc-desc">Anthropic（アンソロピック）社のモデル。文書・表計算・スライドをまたぐ多段階の作業が得意。Word・PowerPoint・Cowork などで選べます。
         <span class="mc-where">Word・PowerPoint・Copilot Cowork</span>
       </div>
     </div>
     <div class="model-card">
-      <div class="mc-name">Claude Opus 4.8<span class="mc-sub">クロード・オーパス・フォーポイントエイト</span></div>
-      <div class="mc-desc">Anthropic 社のモデル。多くの手順が必要な複雑な作業、長い文書やプレゼンの作成が得意。Word（Web 版は 8 月 11 日から）・Excel・PowerPoint・Chat・Cowork で選べます。
-        <span class="mc-where">Copilot Chat・Word・Excel・PowerPoint・Copilot Cowork</span>
+      <div class="mc-name">Claude Fable 5.1 <span class="tag-new">9月</span><span class="mc-sub">クロード・フェイブル・ファイブポイントワン</span></div>
+      <div class="mc-desc">Anthropic 社の、長時間の作業や財務分析・画面づくりに向いたモデル（9 月 1 日〜、旧 Fable 5 を置き換え）。Copilot Cowork と Copilot Studio で選べます。
+        <span class="mc-where">Copilot Cowork・Copilot Studio</span>
       </div>
     </div>
   </div>
 
-  <div class="note reveal" style="margin-top:20px">モデルを選べるようにするには、会社の管理者が Anthropic を「副処理者（サブプロセッサー）」として有効にしておく必要があります（EU・EFTA・イギリスでは既定でオフ）。なお <strong>SharePoint の Copilot は GPT-5.4 Reasoning で動作し、モデル選択はできません</strong>。詳しくは社内の IT 担当者にご確認ください。</div>
+  <div class="note reveal" style="margin-top:20px">モデルを選べるようにするには、会社の管理者が Anthropic を「副処理者（サブプロセッサー）」として有効にしておく必要があります（EU・EFTA・イギリスでは既定でオフ）。9 月には xAI 社の <strong>Grok</strong>（グロック）も選べるようになりましたが、こちらは既定でオフで、一部地域では使えません。なお <strong>SharePoint の Copilot は GPT-5.4 Reasoning で動作し、モデル選択はできません</strong>。詳しくは社内の IT 担当者にご確認ください。</div>
 </section>
 
 <!-- ═════════ PANEL: NEWS（新機能）═════════ -->
 <section class="panel" data-panel="news" role="tabpanel">
   <div class="news-hero reveal">
-    <h2>2026 年 夏（6〜8 月）の新機能ハイライト</h2>
-    <p>この夏に追加・強化された主なアップデートをまとめました。新しい AI モデルの登場、文書作成の細かな作業をおまかせできる機能、エージェントの呼び出しやすさなどが大きく進みました。気になる機能は、各ツールのタブで詳しい使い方を確認できます。</p>
+    <h2>2026 年 秋（9〜10 月）の新機能ハイライト</h2>
+    <p>この秋は、Copilot アプリそのものの大きな刷新が中心です。アプリ名とアドレスの変更、アプリ内で Office を直接編集できる新体験、新しい AI モデルの登場などが進みました。気になる機能は、各ツールのタブで詳しい使い方を確認できます。</p>
   </div>
 
   <div class="news-grid reveal">
     <div class="news-card cross">
       <span class="nc-tool">共通</span>
-      <h4>新しい AI モデルが 2 つ登場</h4>
-      <p>OpenAI の <strong>GPT-5.6</strong>（7/9〜、Copilot のおすすめモデル）と、Anthropic の <strong>Claude Sonnet 5</strong>（7/2〜）が加わりました。複雑で手順の多い作業に強いモデルです。</p>
-      <span class="nc-date">2026.07〜</span>
+      <h4>アプリ名とアドレスが変わります</h4>
+      <p>Copilot アプリの名前が「Microsoft 365 Copilot」から <strong>「Microsoft Copilot」</strong>へ。ブラウザのアドレスも <code>copilot.cloud.microsoft</code> に、10 月初旬から順次切り替わります。</p>
+      <span class="nc-date">2026.10 初旬〜</span>
     </div>
     <div class="news-card cross">
       <span class="nc-tool">共通</span>
-      <h4>チャットからエージェントを呼び出し</h4>
-      <p>Copilot Chat で <code>@</code> に続けて名前を打つだけで、Word・Excel・PowerPoint のエージェントをその場に呼び出せるように。アプリを行き来せずに文書・表・スライドを作れます。</p>
-      <span class="nc-date">2026.07〜</span>
+      <h4>Office in Copilot（アプリ内で直接編集）</h4>
+      <p>Copilot アプリの中で、Word・Excel・PowerPoint を<strong>直接作って編集</strong>できるように（10/9〜、まず先行利用の Frontier 向け）。作ったファイルは「Library」に集約されます。</p>
+      <span class="nc-date">2026.10.09〜</span>
     </div>
     <div class="news-card cross">
       <span class="nc-tool">共通</span>
-      <h4>Copilot Cowork が正式提供に</h4>
-      <p>指示した仕事を「最後までやり切って完成品を返す」新しい AI が、6/16 に世界で正式提供。Copilot アプリの切替タブから使えます（管理者の設定と従量課金が必要）。</p>
-      <span class="nc-date">2026.06.16〜</span>
+      <h4>新しい AI モデルが登場</h4>
+      <p>OpenAI の <strong>GPT-6 Astra</strong>（9/4〜）と、Anthropic の <strong>Claude Fable 5.1</strong>（9/1〜）が Cowork・Copilot Studio に。xAI の Grok も選べるように（既定オフ）。</p>
+      <span class="nc-date">2026.09〜</span>
     </div>
-    <div class="news-card word">
-      <span class="nc-tool">Word</span>
-      <h4>目次・見出し・変更履歴に対応</h4>
-      <p>目次・ヘッダー・フッター・ページ番号・脚注を Copilot が作成・管理。変更履歴（Track Changes）をオンにしたまま編集でき、提案を 1 つずつ確認できます。</p>
-      <span class="nc-date">2026.07〜</span>
-    </div>
-    <div class="news-card word">
-      <span class="nc-tool">Word</span>
-      <h4>モデル選択・画像生成・Catchup</h4>
-      <p>Web 版 Word で Claude を選べるように（8/11〜）。文書への画像生成・挿入や、前回からの変更点を要約する Catchup も加わりました。</p>
-      <span class="nc-date">2026.06〜08</span>
-    </div>
-    <div class="news-card excel">
-      <span class="nc-tool">Excel</span>
-      <h4>見た目を一括で整えるスキル</h4>
-      <p><code>@theme-design</code> と打つだけで、配色・グラフ・レイアウトを一気に整えて読みやすい資料に。会社のブランド（Brand Kit）での書式化や Power BI 連携も追加。</p>
+    <div class="news-card cross">
+      <span class="nc-tool">共通</span>
+      <h4>Web と社内の検索が 1 つに</h4>
+      <p>Copilot Chat で、Web と社内情報の切り替えがなくなり <strong>1 つのチャット</strong>に統合。社内情報を使うかどうかは「Work IQ」ボタンで切り替えます（既定でオン）。</p>
       <span class="nc-date">2026.08〜</span>
     </div>
+    <div class="news-card cross">
+      <span class="nc-tool">共通</span>
+      <h4>回答の一部を選んで深掘り・共有</h4>
+      <p>Copilot の回答から<strong>必要な一文だけを選んで</strong>追加の質問ができるように。チャット全体や 1 つの回答だけを、リンクで同僚に共有することもできます。</p>
+      <span class="nc-date">2026.08〜</span>
+    </div>
+    <div class="news-card word">
+      <span class="nc-tool">Word</span>
+      <h4>引用元の表示・画像や図形の編集</h4>
+      <p>Copilot の回答に<strong>引用元（Citations）</strong>が表示され、根拠を確認しやすくなりました。文書内の画像や図形を、Copilot に並べ替え・調整してもらうこともできます。</p>
+      <span class="nc-date">2026.09〜</span>
+    </div>
     <div class="news-card excel">
       <span class="nc-tool">Excel</span>
-      <h4>Skills・Rules・個人設定</h4>
-      <p>よく使う指示を「スキル」として保存でき、ブックごとのルール（.Rules シート）や個人の好み設定も反映。分析できるファイル形式も 30 種類以上増えました。</p>
-      <span class="nc-date">2026.06〜</span>
+      <h4>変更履歴スキル（誰がいつ変えた？）</h4>
+      <p><strong>Change History スキル</strong>が正式提供（9/1）。Copilot に聞くだけで、自分や同僚、Copilot 自身が加えた変更を確認でき、特定の変更だけを元に戻せます（最大 365 日分）。</p>
+      <span class="nc-date">2026.09.01〜</span>
     </div>
     <div class="news-card ppt">
       <span class="nc-tool">PowerPoint</span>
-      <h4>コメントの作成・返信・解決</h4>
-      <p>スライドのコメントを Copilot が書いたり、返信したり、解決済みにしたり。8 月には、コメントを担当者つきのタスクに変える機能も加わりました。</p>
-      <span class="nc-date">2026.07〜08</span>
+      <h4>承認テンプレートに固定・ノートで指示</h4>
+      <p>会社の<strong>承認テンプレートだけ</strong>を使うよう Copilot を制限できます（Strict モード）。スライドのノート欄に書いた指示を、そのスライドだけに反映させることも可能に。</p>
+      <span class="nc-date">2026.08〜</span>
     </div>
     <div class="news-card ppt">
       <span class="nc-tool">PowerPoint</span>
-      <h4>Brand Kit・スキル・資料参照</h4>
-      <p>会社の承認ブランドを選んでオンブランドなデックを生成。よく使う作業をスキル化でき、SharePoint／OneDrive の資料も参照できます。</p>
-      <span class="nc-date">2026.06〜07</span>
+      <h4>長い作業を離れても続けてくれる</h4>
+      <p>時間のかかるスライド作成は、<strong>アプリを閉じても・別の端末に移っても・退勤しても</strong>裏側で作業が続き、終わると知らせてくれるように（10 月）。</p>
+      <span class="nc-date">2026.10〜</span>
     </div>
     <div class="news-card teams">
       <span class="nc-tool">Teams</span>
-      <h4>会議の要約をまとめる専用アプリ</h4>
-      <p>会議の要約（Recap）を 1 か所に集める「Meeting recaps」アプリが登場。過去 30 日分の、録画または文字起こしがある会議を一覧できます。</p>
-      <span class="nc-date">2026.07〜</span>
+      <h4>会議の要約をあとから翻訳</h4>
+      <p>会議のあとに作られた要約（Recap）を、<strong>別の言語に翻訳</strong>できるようになりました。参加できなかった海外メンバーとの共有に便利です。</p>
+      <span class="nc-date">2026.09〜</span>
     </div>
     <div class="news-card cross">
       <span class="nc-tool">共通</span>
-      <h4>画面を見せて質問（Vision）</h4>
-      <p>画面や、スマホのカメラに映したものを Copilot に見せながら、声で質問できるように。エラー画面や実物について、言葉で説明しなくても答えてもらえます。</p>
-      <span class="nc-date">2026.07〜</span>
+      <h4>Notebooks が「作業する場所」に</h4>
+      <p>Copilot Notebooks が大きく進化。集めた資料から Word・Excel・PowerPoint を<strong>その場で作成・編集</strong>でき、定期タスクやインタラクティブなレポートも作れます（10 月、順次）。</p>
+      <span class="nc-date">2026.10〜</span>
     </div>
-    <div class="news-card forms">
-      <span class="nc-tool">Forms</span>
-      <h4>Copilot Chat が Forms 内に統合</h4>
-      <p>Forms の画面右下から Copilot Chat を開けるように。なお別アプリの「Surveys エージェント」は 8/31 に廃止され、Forms 内蔵の Copilot に一本化されました。</p>
-      <span class="nc-date">2026.07〜</span>
+    <div class="news-card cross">
+      <span class="nc-tool">共通</span>
+      <h4>一部の予定機能は取りやめに</h4>
+      <p>予定されていた「スマホへのおすすめ通知」と「Teams 会議内のインタラクティブ・エージェント」は、提供を取りやめることが発表されました。</p>
+      <span class="nc-date">2026.08 発表</span>
     </div>
   </div>
 </section>
@@ -1795,7 +1801,7 @@
         <div class="steps">
           <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
           <div class="steps-body"><ol>
-            <li>ブラウザで <code>m365.cloud.microsoft/chat</code> を開く</li>
+            <li>ブラウザで <code>copilot.cloud.microsoft/chat</code> を開く</li>
             <li>左メニューの <code>Agents</code>（エージェント）から <code>Word Agent</code> を選ぶ</li>
             <li>作りたい文書を指示（例：「新人向けオンボーディングガイドを 5 ページで作成」）</li>
             <li>必要なら <code>+</code> アイコンから参照ファイルを追加</li>
@@ -1810,16 +1816,62 @@
         <span class="feat-card-title">Copilot Notebooks から Word 生成<span class="tag-new">5〜6月</span></span>
       </div>
       <div class="feat-card-body">
-        <p>Copilot Notebooks（ノートブック）に集めた資料や参照から、Word 文書をまとめて生成できます。</p>
+        <p>Copilot Notebooks（ノートブック）に集めた資料や参照から、Word 文書をまとめて生成できます。10 月からは、ノートブックの中で Word を<strong>その場で編集</strong>できる機能も順次加わっています。</p>
         <div class="steps">
           <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
           <div class="steps-body"><ol>
-            <li><code>m365.cloud.microsoft</code> の左メニューから <code>Notebooks</code> を開く</li>
+            <li><code>copilot.cloud.microsoft</code> の左メニューから <code>Notebooks</code> を開く</li>
             <li>対象のノートブックを選び、参照ファイルを追加</li>
             <li>ノートブック上部の「Create」→ <code>Word document</code> を選ぶ</li>
             <li>できあがった Word ファイルは OneDrive に保存されます</li>
           </ol></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head reveal">
+    <div class="sec-mark" style="background:var(--c-word-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-word)" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+    <div>
+      <h3>秋に加わった新機能</h3>
+      <div class="sec-en">New in autumn 2026</div>
+    </div>
+  </div>
+
+  <div class="feat-grid reveal">
+    <div class="feat-card">
+      <div class="feat-card-head">
+        <span class="feat-card-title">引用元の表示（Citations）<span class="tag-new">9月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>Copilot が答えた内容の<strong>根拠となった資料へのリンク（引用元）</strong>が、回答の中に表示されるようになりました。どの情報にもとづいているかをすぐ確認でき、安心して使えます。</p>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
+        <span class="feat-card-title">画像・図形の配置と編集<span class="tag-new">9月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>文書の中の<strong>画像や図形を、Copilot に並べ替え・調整してもらえる</strong>ようになりました。「この画像を右に寄せて」「図を揃えて」のように言葉で頼めます。</p>
+        <div class="steps">
+          <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="steps-body"><ol>
+            <li>画像や図形が入った文書を開く</li>
+            <li>Copilot ペインで「この画像を中央に配置して」などと指示</li>
+            <li>提案された配置を確認して反映</li>
+          </ol></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
+        <span class="feat-card-title">Office in Copilot（アプリ内で Word 編集）<span class="tag-new">10月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>Copilot アプリの中で <strong>Word 文書を直接作って編集</strong>できる新しい体験（10/9〜、まず先行利用の Frontier 向け）。会話の横に文書が開き、追加の指示や通常の編集で仕上げられます。作ったファイルは「Library」にまとまります。</p>
+        <span class="note">まずは Frontier（先行利用プログラム）のお客様から順次提供されています。</span>
       </div>
     </div>
   </div>
@@ -1841,14 +1893,15 @@
         <li>既存文書の<strong>要約・書き換え・トーン変更</strong></li>
         <li>メール・会議・ファイルから<strong>情報を引用して反映</strong></li>
         <li>見出しや書式などの<strong>スタイルを保ったまま生成</strong></li>
-        <li>Web 検索・社内情報の<strong>引用元をすぐ表示</strong>（3 月以降）</li>
+        <li>回答に<strong>引用元（Citations）を表示</strong>（9 月に強化）</li>
+        <li><strong>画像・図形の配置と編集</strong>を言葉で指示（9 月）</li>
         <li><strong>モデル選択</strong>（OpenAI／Claude）が Web 版 Word でも可能に（8 月）</li>
         <li><strong>目次・見出し・脚注</strong>の作成と最新化（7 月）</li>
         <li><strong>変更履歴をオン</strong>にしたまま編集（提案として確認）</li>
         <li>文書内への<strong>画像生成・挿入</strong>（6 月）</li>
         <li><strong>Catchup</strong>：前回開いてからの変更点をすぐ把握（6 月）</li>
         <li><strong>コメントにもとづく編集・返信</strong>（6 月）</li>
-        <li>iPhone・iPad でも<strong>多段階の編集</strong>（6 月）</li>
+        <li>Copilot アプリ内で<strong>直接 Word 編集</strong>（10 月・Frontier）</li>
       </ul>
     </div>
     <div class="cando-card ng">
@@ -1892,7 +1945,7 @@
   </div>
 
   <div class="panel-lead excel reveal">
-    Excel（エクセル）の Copilot は、<strong>関数や専門知識がなくてもデータ分析ができる</strong>ように手伝ってくれます。「顧客ごとの平均売上を出して」と言葉で頼むだけで数式を作り、グラフや集計表も提案します。5 月からは <strong>Plan モード</strong>や <strong>Python 分析</strong>、6 月からは <strong>スキル保存</strong>や<strong>ブック単位のルール</strong>、8 月には見た目を一括で整える <strong>@theme-design</strong> や <strong>Power BI 連携</strong>も加わりました。
+    Excel（エクセル）の Copilot は、<strong>関数や専門知識がなくてもデータ分析ができる</strong>ように手伝ってくれます。「顧客ごとの平均売上を出して」と言葉で頼むだけで数式を作り、グラフや集計表も提案します。5 月からは <strong>Plan モード</strong>や <strong>Python 分析</strong>、8 月には見た目を一括で整える <strong>@theme-design</strong> や <strong>Power BI 連携</strong>、9 月には<strong>変更履歴スキル</strong>も加わりました。
   </div>
 
   <div class="urlbar reveal">
@@ -2094,10 +2147,28 @@
 
     <div class="feat-card">
       <div class="feat-card-head">
+        <span class="feat-card-title">変更履歴スキル（誰がいつ変えた？）<span class="tag-new">9月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>Copilot に聞くだけで、<strong>自分や同僚、Copilot 自身が加えた変更</strong>を一覧で確認できます。「先週の金曜に誰が B 列を変えた？」のように質問でき、特定の変更だけを元に戻すこともできます（9 月 1 日に正式提供）。</p>
+        <div class="steps">
+          <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="steps-body"><ol>
+            <li>Copilot 画面を開く</li>
+            <li>「このブックの最近の変更を教えて」などと質問</li>
+            <li>変更した人・日時・内容が一覧表示され、元に戻したいものを選べます</li>
+          </ol></div>
+        </div>
+        <span class="note">Excel が記録している変更履歴（最大 365 日分）にもとづきます。それより前や、対応していないバージョンでの変更は表示されないことがあります。</span>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
         <span class="feat-card-title">Claude・GPT のモデルを選べる<span class="tag-new">5〜6月</span></span>
       </div>
       <div class="feat-card-body">
-        <p>Excel の Edit with Copilot で Claude Opus 4.8 などを選べます（5 月 28 日〜）。Work IQ（社内情報の理解）と組み合わせると、より的確な結果になります。あわせて、分析できるファイル形式も 30 種類以上（JSON・XML・SVG・SQL など）増えました。AutoSave（オートセーブ）をオフにしたファイルでも動くようになっています。</p>
+        <p>Excel の Edit with Copilot で Claude や GPT のモデルを選べます（5 月 28 日〜）。Work IQ（社内情報の理解）と組み合わせると、より的確な結果になります。あわせて、分析できるファイル形式も 30 種類以上（JSON・XML・SVG・SQL など）増えました。AutoSave（オートセーブ）をオフにしたファイルでも動くようになっています。</p>
       </div>
     </div>
   </div>
@@ -2120,7 +2191,7 @@
         <div class="steps">
           <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
           <div class="steps-body"><ol>
-            <li>ブラウザで <code>m365.cloud.microsoft/chat</code> を開く</li>
+            <li>ブラウザで <code>copilot.cloud.microsoft/chat</code> を開く</li>
             <li>左メニューの <code>Agents</code> から <code>Excel Agent</code> を選ぶ</li>
             <li>作りたい表を指示（例：「月別の売上・支出トラッカーを年次集計つきで作成」）</li>
             <li>完成したら OneDrive のリンクから Excel で開く</li>
@@ -2155,6 +2226,7 @@
         <li><strong>Plan モード</strong>で作業手順を先に確認</li>
         <li>Python による<strong>高度分析・予測・グラフ作成</strong></li>
         <li><strong>OpenAI／Claude</strong> のモデル選択</li>
+        <li><strong>変更履歴スキル</strong>で誰がいつ変えたか確認（9 月）</li>
         <li><strong>@theme-design</strong> で見た目を一括で整える（8 月）</li>
         <li>会社の<strong>Brand Kit で書式化</strong>（7 月）</li>
         <li><strong>Power BI のデータ</strong>を参照して分析（8 月）</li>
@@ -2205,7 +2277,7 @@
   </div>
 
   <div class="panel-lead ppt reveal">
-    PowerPoint（パワーポイント）の Copilot は、<strong>スライド作りをまるごと手伝ってくれます</strong>。テーマを伝えるだけでデック（スライド一式）を作り、テキストばかりのスライドを図解に変えたり、想定質問を準備したりもできます。5 月からは <strong>ワンクリックの便利スキル</strong>と <strong>画像 AI の選択</strong>、6 月からは <strong>Brand Kit（会社ブランド）</strong>、7〜8 月には <strong>コメントの作成・返信・解決</strong>や<strong>タスク化</strong>も加わりました。
+    PowerPoint（パワーポイント）の Copilot は、<strong>スライド作りをまるごと手伝ってくれます</strong>。テーマを伝えるだけでデック（スライド一式）を作り、テキストばかりのスライドを図解に変えたり、想定質問を準備したりもできます。6 月からは <strong>Brand Kit（会社ブランド）</strong>、7〜8 月には <strong>コメント対応</strong>、8 月には<strong>承認テンプレートへの固定</strong>や<strong>スライドノートでの指示</strong>、10 月には<strong>長い作業を離れても続ける</strong>機能も加わりました。
   </div>
 
   <div class="urlbar reveal">
@@ -2437,10 +2509,39 @@
 
     <div class="feat-card">
       <div class="feat-card-head">
+        <span class="feat-card-title">承認テンプレートに固定（Strict モード）<span class="tag-new">8月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>Copilot が<strong>会社の承認テンプレートとレイアウトだけ</strong>を使うよう制限できます。オンにすると、Copilot は勝手に新しいレイアウトを作ったり、プレースホルダーを足し引きしたりしません。ブランドの統一に役立ちます。</p>
+        <span class="note">設定は PowerPoint ではなく、Copilot アプリの「Create → More… → Brand kits」にあります。管理者（ブランド担当）向けの設定です。</span>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
+        <span class="feat-card-title">スライドのノートで指示（Note steering）<span class="tag-new">8月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>スライドの<strong>ノート欄に書いた指示</strong>を、Copilot がそのスライドだけに反映してくれます。「この表紙は必ず残す」「このスライドは変更しない」「棒グラフを使う」など、スライドごとに細かく指定できます。</p>
+        <span class="note">テンプレート側で「Allow note instructions（ノートの指示を使う）」を有効にしておく必要があります。</span>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
+        <span class="feat-card-title">長い作業を離れても続けてくれる<span class="tag-new">10月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>時間のかかるスライド作成は、<strong>PowerPoint を閉じても・別の端末に移っても・退勤しても</strong>、裏側で作業が続きます。終わったり確認が必要になったときには通知で知らせてくれるので、待っている必要がありません。</p>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
         <span class="feat-card-title">Claude・GPT のモデルを選べる<span class="tag-new">5〜7月</span></span>
       </div>
       <div class="feat-card-body">
-        <p>PowerPoint でも Claude Opus 4.8 を選べます（5 月 28 日〜）。さらに 7 月からは、多段階の作業が得意な <strong>Claude Sonnet 5</strong> や <strong>GPT-5.6</strong> も選べるようになり、何度もやりとりする編集の精度が上がりました。</p>
+        <p>PowerPoint でも Claude のモデルを選べます（5 月 28 日〜）。さらに 7 月からは、多段階の作業が得意な <strong>Claude Sonnet 5</strong> や <strong>GPT-5.6</strong> も選べるようになり、何度もやりとりする編集の精度が上がりました。</p>
       </div>
     </div>
   </div>
@@ -2493,7 +2594,7 @@
         <div class="steps">
           <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
           <div class="steps-body"><ol>
-            <li>ブラウザで <code>m365.cloud.microsoft/chat</code> を開く</li>
+            <li>ブラウザで <code>copilot.cloud.microsoft/chat</code> を開く</li>
             <li>入力欄で <code>@PowerPoint</code> とメンションしてエージェントを呼び出す（7 月〜）。または左メニューの <code>Agents</code> から選ぶ</li>
             <li>入力欄の <code>+</code> → <code>Add work content</code> で OneDrive ファイルを参照（おすすめ）</li>
             <li>作りたいデックを指示（例：「四半期レポートから経営層向けブリーフを作成」）</li>
@@ -2530,9 +2631,10 @@
         <li><strong>4 種の画像 AI</strong>から選んで画像生成</li>
         <li>Word 文書からの<strong>スライド変換</strong></li>
         <li><strong>Brand Kit</strong>を選んで最初からオンブランドに生成（6 月）</li>
+        <li><strong>承認テンプレートに固定</strong>（Strict モード・8 月）</li>
+        <li><strong>スライドのノート</strong>で 1 枚ずつ指示（8 月）</li>
+        <li>長い作業を<strong>離れても続けてくれる</strong>（10 月）</li>
         <li><strong>コメントの作成・返信・解決</strong>（7 月）／タスク化（8 月）</li>
-        <li>iPhone・iPad でも<strong>多段階の編集</strong>（7 月）</li>
-        <li>よく使う作業の<strong>スキル保存</strong>（7 月）</li>
         <li>会議中に<strong>参加者が用語を AI 説明</strong>（6 月）</li>
         <li><strong>Claude Sonnet 5・GPT-5.6</strong> などのモデル選択（7 月）</li>
         <li>デック全体・特定スライドの<strong>翻訳・要約</strong></li>
@@ -2727,7 +2829,7 @@
         <div class="steps">
           <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
           <div class="steps-body"><ol>
-            <li><code>m365.cloud.microsoft/chat</code> を開く</li>
+            <li><code>copilot.cloud.microsoft/chat</code> を開く</li>
             <li>プロンプトを一度実行する</li>
             <li>そのプロンプトにマウスを重ね <code>Schedule this prompt</code> を選ぶ</li>
             <li>時刻・頻度を設定（例：毎日 8:30）</li>
@@ -2889,6 +2991,23 @@
 
     <div class="feat-card">
       <div class="feat-card-head">
+        <span class="feat-card-title">会議の要約をあとから翻訳<span class="tag-new">9月</span></span>
+      </div>
+      <div class="feat-card-body">
+        <p>会議のあとに作られた要約（Recap）を、<strong>別の言語に翻訳</strong>できるようになりました。参加できなかった海外のメンバーや、別の言語を使う同僚との共有に便利です。</p>
+        <div class="steps">
+          <div class="steps-toggle"><span class="step-tag">操作手順</span> ボタンの場所と手順を見る <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="steps-body"><ol>
+            <li>会議後、該当会議の <code>Recap</code>（要約）タブを開く</li>
+            <li>要約の表示言語を切り替える操作で、翻訳したい言語を選ぶ</li>
+            <li>要約が選んだ言語で表示されます</li>
+          </ol></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-card-head">
         <span class="feat-card-title">Facilitator（会議の進行補佐）</span>
       </div>
       <div class="feat-card-body">
@@ -3002,6 +3121,7 @@
         <li>会議中の<strong>リアルタイム要約・質問応答</strong></li>
         <li>会議後の<strong>Intelligent Recap</strong>（多言語対応）</li>
         <li>要約を 1 か所に集める<strong>Meeting recaps アプリ</strong>（7 月）</li>
+        <li>会議の要約を<strong>あとから別の言語に翻訳</strong>（9 月）</li>
         <li>Facilitator による<strong>進行補佐・時間管理</strong></li>
         <li><strong>10 言語のターン制通訳</strong>（5 月正式提供）</li>
         <li><strong>電話の代理応対</strong>（Call Delegation）</li>
@@ -3392,7 +3512,7 @@
       <div>
         <div class="footer-brand">Microsoft 365 <span class="fb-accent">Copilot</span> はじめてガイド</div>
         <div class="footer-desc">
-          Microsoft 365 Business Standard ＋ Microsoft 365 Copilot ライセンスをお持ちの方向けに、7 つのツールの「ブラウザ版」でできることを、はじめての方にもわかるようにまとめたガイドです。2026 年 9 月時点の Microsoft 公式情報にもとづいています。
+          Microsoft 365 Business Standard ＋ Microsoft 365 Copilot ライセンスをお持ちの方向けに、7 つのツールの「ブラウザ版」でできることを、はじめての方にもわかるようにまとめたガイドです。2026 年 10 月時点の Microsoft 公式情報にもとづいています。
         </div>
       </div>
       <div class="footer-meta">
@@ -3400,7 +3520,7 @@
         <span class="fm-val">Word / Excel / PowerPoint<br>Outlook / Teams / SharePoint / Forms</span>
         <br><br>
         <span class="fm-label">更新日</span>
-        <span class="fm-val">2026 年 9 月 14 日</span>
+        <span class="fm-val">2026 年 10 月 14 日</span>
       </div>
     </div>
     <div class="footer-note">
